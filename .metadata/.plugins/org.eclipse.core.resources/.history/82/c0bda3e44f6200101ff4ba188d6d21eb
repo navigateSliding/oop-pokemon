@@ -1,0 +1,34 @@
+package dev.project.pokemon.implementation;
+
+public class AsciiArt {
+	public String getStartMenu() {
+		return """
+				
+				""";
+	}
+	public String getPauseMenu() {
+		return """
+				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
+				▐        Pause         ▌
+				▐  P - [ Play-Pause ]  ▌
+				▐  Q - [ Quit ]        ▌
+				▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
+				""";
+	}
+	public String getDefeatedMenu() {
+		return """
+				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
+				▐                                      ▌
+				▐ ░█▀▀░█▀█░█▄█░█▀▀░░░█▀█░█░█░█▀▀░█▀▄░█ ▌
+				▐ ░█░█░█▀█░█░█░█▀▀░░░█░█░▀▄▀░█▀▀░█▀▄░▀ ▌
+				▐ ░▀▀▀░▀░▀░▀░▀░▀▀▀░░░▀▀▀░░▀░░▀▀▀░▀░▀░▀ ▌
+				▐                                      ▌
+				▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
+				""";
+	}
+	public String getPokemonEncounter() {
+		return """
+				
+				""";
+	}
+}

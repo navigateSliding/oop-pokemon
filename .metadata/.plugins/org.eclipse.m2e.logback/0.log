@@ -77,3 +77,26 @@
 2025-07-16 10:07:13,417 [Worker-8: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
 2025-07-16 10:08:14,513 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
 2025-07-16 10:08:14,513 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
+2025-07-16 10:17:31,057 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-07-16 10:17:32,388 [Worker-5: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: dev.project:pokemon:0.0.1-SNAPSHOT @ /home/userpro/oop-pokemon/pokemon/pom.xml.
+2025-07-16 10:17:32,735 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
+2025-07-16 10:17:32,739 [Worker-5: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
+2025-07-16 10:17:33,800 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
+2025-07-16 10:17:33,801 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
+2025-07-16 10:18:22,165 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
+2025-07-16 10:18:22,167 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
+2025-07-16 10:19:17,062 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
+2025-07-16 10:19:17,064 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
+2025-07-16 10:19:32,798 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
+2025-07-16 10:19:32,799 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
+2025-07-16 10:21:52,582 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
+2025-07-16 10:21:52,583 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
+2025-07-16 10:32:33,470 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-07-16 10:32:34,655 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
+2025-07-16 10:32:34,659 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
+2025-07-16 10:32:41,951 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
+2025-07-16 10:32:41,952 [Worker-12: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
+2025-07-16 10:40:08,887 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
+2025-07-16 10:40:08,888 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
+2025-07-16 10:40:20,862 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
+2025-07-16 10:40:20,863 [Worker-9: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
