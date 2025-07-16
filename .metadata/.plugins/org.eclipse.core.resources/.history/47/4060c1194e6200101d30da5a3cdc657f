@@ -1,0 +1,5 @@
+package dev.project.pokemon.implementation;
+
+public class AsciiArt {
+
+}
