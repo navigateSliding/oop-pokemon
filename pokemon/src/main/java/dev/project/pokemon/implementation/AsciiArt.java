@@ -30,6 +30,7 @@ public class AsciiArt {
 				▐                                      ▌
 				▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
 				""";
+//		Using Pagga Font from https://www.asciiart.eu/text-to-ascii-art
 	}
 	public String getPokemonEncounter() {
 		return """
