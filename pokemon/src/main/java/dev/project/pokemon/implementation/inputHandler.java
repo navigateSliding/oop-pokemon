@@ -8,15 +8,29 @@ import org.jline.utils.NonBlockingReader;
 import java.io.IOException;
 
 public class inputHandler {
+    private static Terminal terminal;
+    private static Attributes originalAttributes;
+    private static NonBlockingReader reader;
+
+    public inputHandler() {
+        try {
+            terminal = TerminalBuilder.builder().build();
+            originalAttributes = terminal.getAttributes();
+            terminal.enterRawMode();
+            reader = terminal.reader();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void startMenu() {
+
+    }
 
     public static void progressInput(progressBar progress) {
-        try (Terminal terminal = TerminalBuilder.builder().build()) {
-            progress.printProgressBar();
+        progress.printProgressBar();
 
-            Attributes originalAttributes = terminal.getAttributes();
-            terminal.enterRawMode();
-            NonBlockingReader reader = terminal.reader();
-
+        try {
             boolean waitLoad = true;
             int DelayTime = 500;
             long startTime = System.currentTimeMillis();
@@ -45,8 +59,17 @@ public class inputHandler {
                     terminal.writer().flush();
                 }
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+        close();
+    }
+
+    public static void close() {
+        try {
             terminal.setAttributes(originalAttributes);
+            terminal.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
