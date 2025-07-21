@@ -13,18 +13,23 @@ public class inputHandler {
     private Attributes originalAttributes;
 
     public inputHandler() throws IOException {
-        try {
-            terminal = TerminalBuilder.builder().build();
-            originalAttributes = terminal.getAttributes();
-            terminal.enterRawMode();
-            reader = terminal.reader();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        terminal = TerminalBuilder.builder().build();
+        originalAttributes = terminal.getAttributes();
+        terminal.enterRawMode();
+        reader = terminal.reader();
     }
 
-    public void startMenu() {
+    public void startMenuInput() throws IOException {
+        int pressedKeystroke = reader.read();
 
+        switch (pressedKeystroke) {
+            case 'p':
+                System.out.println("TEST PLAY");
+                break;
+            case 'q':
+                System.out.println("TEST QUIT");
+                break;
+        }
     }
 
     public void progressBarInput(progressBar progress) throws IOException {
@@ -35,9 +40,9 @@ public class inputHandler {
         long startTime = System.currentTimeMillis();
 
         while (progress.getCurrentValue() < progress.getProgressMax()) {
-            int c = reader.read(100);
+            int pressedKeystroke = reader.read(100);
 
-            if (c == ' ') {
+            if (pressedKeystroke == ' ') {
                 progress.increaseProgress(1.5);
                 progress.printProgressBar();
 
