@@ -8,11 +8,11 @@ import org.jline.utils.NonBlockingReader;
 import java.io.IOException;
 
 public class inputHandler {
-    private static Terminal terminal;
-    private static Attributes originalAttributes;
-    private static NonBlockingReader reader;
+    private Terminal terminal;
+    private NonBlockingReader reader;
+    private Attributes originalAttributes;
 
-    public inputHandler() {
+    public inputHandler() throws IOException {
         try {
             terminal = TerminalBuilder.builder().build();
             originalAttributes = terminal.getAttributes();
@@ -23,55 +23,45 @@ public class inputHandler {
         }
     }
 
-    public static void startMenu() {
+    public void startMenu() {
 
     }
 
-    public static void progressInput(progressBar progress) {
+    public void progressBarInput(progressBar progress) throws IOException {
         progress.printProgressBar();
+        
+        boolean waitLoad = true;
+        int DelayTime = 500;
+        long startTime = System.currentTimeMillis();
 
-        try {
-            boolean waitLoad = true;
-            int DelayTime = 500;
-            long startTime = System.currentTimeMillis();
+        while (progress.getCurrentValue() < progress.getProgressMax()) {
+            int c = reader.read(100);
 
-            while (progress.getCurrentValue() < progress.getProgressMax()) {
-                int c = reader.read(100);
+            if (c == ' ') {
+                progress.increaseProgress(1.5);
+                progress.printProgressBar();
 
-                if (c == ' ') {
-                    progress.increaseProgress(1.5);
-                    progress.printProgressBar();
-
-                    waitLoad = true;
-                    DelayTime = 500;
-                    startTime = System.currentTimeMillis();
-                }
-
-                if (System.currentTimeMillis() - startTime >= DelayTime) {
-                    if (waitLoad) {
-                        waitLoad = false;
-                        DelayTime = 50;
-                    }
-
-                    progress.decreaseProgress(1.5);
-                    progress.printProgressBar();
-
-                    terminal.writer().flush();
-                }
+                waitLoad = true;
+                DelayTime = 500;
+                startTime = System.currentTimeMillis();
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
-        close();
+            if (System.currentTimeMillis() - startTime >= DelayTime) {
+                if (waitLoad) {
+                    waitLoad = false;
+                    DelayTime = 50;
+                }
+
+                progress.decreaseProgress(1.5);
+                progress.printProgressBar();
+
+                terminal.writer().flush();
+            }
+        }
     }
 
-    public static void close() {
-        try {
-            terminal.setAttributes(originalAttributes);
-            terminal.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    public void close() throws IOException {
+        terminal.setAttributes(originalAttributes);
+        terminal.close();
     }
 }
