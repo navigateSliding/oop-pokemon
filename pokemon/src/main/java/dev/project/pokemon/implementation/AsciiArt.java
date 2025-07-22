@@ -17,7 +17,6 @@ public class AsciiArt {
 				
 				 P - [ Start Game ]
 				 Q - [ Quit ]
-
 				""";
 	}
 	public String getPauseMenu() {
