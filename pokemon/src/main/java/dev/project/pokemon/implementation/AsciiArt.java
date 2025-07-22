@@ -1,7 +1,7 @@
 package dev.project.pokemon.implementation;
 
 public class AsciiArt {
-	public String getStartMenu() {
+	public static String getStartMenu() {
 //		Using ANSI Shadow from https://www.asciiart.eu/text-to-ascii-art
 		return """
 				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
@@ -19,7 +19,7 @@ public class AsciiArt {
 				 Q - [ Quit ]
 				""";
 	}
-	public String getPauseMenu() {
+	public static String getPauseMenu() {
 		return """
 				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
 				▐        Pause           ▌
@@ -30,7 +30,7 @@ public class AsciiArt {
 				▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
 				""";
 	}
-	public String getPokemonEncounter() {
+	public static String getPokemonEncounter() {
 		return """
 				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
 				▐                                                                                ▌
@@ -45,7 +45,7 @@ public class AsciiArt {
 				Q - [ Leave ]
 				""";
 	}
-	public String getCatchFailed() {
+	public static String getCatchFailed() {
 		return """
 				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
 				▐                                                  ▌
@@ -59,7 +59,7 @@ public class AsciiArt {
 				Q - [ Leave ]
 				""";
 	}
-	public String getDefeatedMenu() {
+	public static String getDefeatedMenu() {
 //		Using Pagga Font from https://www.asciiart.eu/text-to-ascii-art
 		return """
 				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
