@@ -12,8 +12,7 @@ public class PrototypeTest {
         progressBar progress = new progressBar(0, 100, 20);
 
         try {
-            AsciiArt asciiArt = new AsciiArt();
-            System.out.println(asciiArt.getStartMenu());
+            System.out.println(AsciiArt.getStartMenu());
 
             inputHandler inputHandler = new inputHandler();
             inputHandler.startMenuInput();
