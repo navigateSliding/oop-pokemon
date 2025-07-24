@@ -209,3 +209,12 @@
 2025-07-21 10:26:51,899 [Worker-13: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 0 sec
 2025-07-21 10:26:52,402 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
 2025-07-21 10:26:52,405 [Worker-15: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
+2025-07-24 00:31:52,474 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-07-24 00:32:10,847 [Worker-13: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: dev.project:pokemon:0.0.1-SNAPSHOT @ /home/userpro/oop-pokemon/pokemon/pom.xml.
+2025-07-24 00:32:12,598 [Worker-13: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pokemon/src/main/java
+2025-07-24 00:32:12,601 [Worker-13: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pokemon/src/main/resources
+2025-07-24 00:32:12,602 [Worker-13: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /pokemon/src/test/java
+2025-07-24 00:32:12,603 [Worker-13: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /pokemon/src/test/resources
+2025-07-24 00:32:12,663 [Worker-13: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 2 sec
+2025-07-24 00:32:13,915 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/main/resources
+2025-07-24 00:32:13,921 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/userpro/oop-pokemon/pokemon/src/test/resources
