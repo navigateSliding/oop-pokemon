@@ -4,20 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Trainer {
-    //attributes
+   //attributes
     private String name;
     private int age;
-    private List<Pokemon> pokemons;
+    private List<Pokemon> allPokemons;
+    private List<Pokemon> partyList; 
+    private static final int MAX_PARTY_SIZE = 3;
 
     //constructor
     public Trainer() {
-
+        this.allPokemons = new ArrayList<>();
+        this.partyList = new ArrayList<>();
     }
 
     public Trainer(String name, int age) {
         this.name = name;
         this.age = age;
-        this.pokemons = new ArrayList<>();
+        this.allPokemons = new ArrayList<>();
+        this.partyList = new ArrayList<>();
     }
 
     //setters and getters
@@ -37,49 +41,71 @@ public class Trainer {
         this.age = age;
     }
 
-    public List<Pokemon> getPokemons() {
-        return pokemons;
+    public List<Pokemon> getAllPokemons() {
+        return allPokemons;
     }
 
-    public void setPokemons(List<Pokemon> pokemons) {
-        this.pokemons = pokemons;
+    public List<Pokemon> getpartyList() {
+        return partyList;
     }
 
     //other methods
     public Move chooseMove() {
-        if (!pokemons.isEmpty()) {
-            Pokemon pokemon = pokemons.get(0);
-            List<Move> moves = pokemons.getMoves();
+        if (!partyList.isEmpty()) {
+            Pokemon pokemon = partyList.get(0);
+            List<Move> moves = pokemon.getMoves();
             if (!moves.isEmpty()) {
                 return moves.get(0); 
             }
         }
-        return null; 
+        return null;
     }
 
     public void switchPokemon() {
-        if (pokemons.size() > 1) {
-            Pokemon current = pokemons.remove(0);
-            pokemons.add(current);
-            System.out.println("Switched to " + pokemons.get(0).getName() + "!");
+        if (partyList.size() > 1) {
+            Pokemon current = partyList.remove(0);
+            partyList.add(current);
+            System.out.println("Switched to " + partyList.get(0).getName() + "!");
         } else {
-            System.out.println("No other Pokemon to switch to!");
+            System.out.println("No other Pokemon to switch to.");
         }
     }
 
     public void addPokemon(Pokemon p) {
-        pokemons.add(p);
-        System.out.println("Pokemon " + p.getName() + "added to your team!");
+        if (!allPokemons.contains(p)) {
+            System.out.println("You don't own this Pokémon.");
+        } else if (partyList.contains(p)) {
+            System.out.println("This Pokémon is already in your party.");
+        } else if (partyList.size() < MAX_PARTY_SIZE) {
+            partyList.add(p);
+            System.out.println("Pokemon " + p.getName() + " added to your party!");
+        } else {
+            System.out.println("Party full! Remove a Pokemon before adding a new one.");
+        }
     }
 
     public void removePokemon(Pokemon p) {
-        pokemons.remove(p);
-        System.out.println("Pokemon " + p.getName() + " removed from your team!");
+        if (partyList.remove(p)) {
+            System.out.println("Pokemon " + p.getName() + " removed from your party.");
+        } else {
+            System.out.println("Pokemon not found in your party.");
+        }
     }
 
     //toString method
     @Override
     public String toString() {
-        return "Trainer: " + name + ", Age: " + age + ", Pokemons: " + pokemons;
+        StringBuilder sb = new StringBuilder();
+        sb.append("Trainer: ").append(name)
+          .append(" | Age: ").append(age)
+          .append(" | Party: ");
+        for (int i = 0; i < partyList.size(); i++) {
+            sb.append(partyList.get(i).getName());
+            if (i < partyList.size() - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }
