@@ -1,3 +1,5 @@
+package dev.project.pokemon.trainer;
+
 import java.util.ArrayList;
 import java.util.List;
 

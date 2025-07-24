@@ -1,3 +1,5 @@
+package dev.project.pokemon.trainer;
+
 public class TestTrainer {
     public static void main(String[] args) {
         Trainer ash = new Trainer ("Ash", 10);
