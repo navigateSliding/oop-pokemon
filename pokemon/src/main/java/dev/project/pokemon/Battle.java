@@ -257,6 +257,8 @@ public class Battle {
      * Show move selection interface
      */
     private void showMoveSelection(Pokemon playerPokemon, Pokemon opponent) {
+        progressBar progress = new progressBar(0, 100, 20);
+
         System.out.println("\n--- SELECT MOVE ---");
         
         // Check if Pokemon has any moves
@@ -282,6 +284,7 @@ public class Battle {
                 // Use the move
                 int damage = calculateDamage(playerPokemon, opponent);
                 System.out.println(playerPokemon.getName() + " used " + availableMove.getName() + "!");
+                inputHandler.progressInput(progress);
                 opponent.takeDamage(damage);
             }
             case "2" -> {
