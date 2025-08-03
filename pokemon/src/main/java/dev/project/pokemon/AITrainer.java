@@ -45,7 +45,14 @@ public class AITrainer {
         Collections.shuffle(available);
         partyList.clear();
         for (int i = 0; i < Math.min(MAX_PARTY_SIZE, available.size()); i++) {
-            partyList.add(available.get(i));
+            // Create copies to avoid modifying original data
+            Pokemon original = available.get(i);
+            Pokemon copy = new Pokemon(original.getName(), original.getPokemonId(), 
+                                     original.getGrade(), original.getMaxHp(), 
+                                     original.getAttack(), original.getDefense(), 
+                                     original.getSpeed(), original.getType());
+            copy.setMove(original.getMove());
+            partyList.add(copy);
         }
         System.out.println("AITrainer " + name + " selected party Pokémon:");
         for (Pokemon p : partyList) {
@@ -54,27 +61,26 @@ public class AITrainer {
     }
 
     public void autoSwitchPokemon() {
-        if (!partyList.isEmpty()) {
-            Collections.shuffle(partyList);
-            Pokemon switched = partyList.get(0);
-            System.out.println(name + " switched to " + switched.getName());
-        } else {
-            System.out.println(name + " has no Pokémon to switch.");
+        // Find next healthy Pokemon
+        for (int i = 0; i < partyList.size(); i++) {
+            if (!partyList.get(i).isDefeated()) {
+                // Move the healthy Pokemon to front
+                Pokemon healthyPokemon = partyList.remove(i);
+                partyList.add(0, healthyPokemon);
+                System.out.println(name + " switched to " + healthyPokemon.getName());
+                return;
+            }
         }
+        System.out.println(name + " has no Pokémon to switch.");
     }
 
     public Move autoChooseMove() {
-        if (!partyList.isEmpty()) {
-            Pokemon pokemon = partyList.get(0);
-            ArrayList<Move> moves = pokemon.getMoves();
-            if (!moves.isEmpty()) {
-                Move strongest = moves.get(0);
-                for (Move m : moves) {
-                    if (m.getPower() > strongest.getPower()) {
-                        strongest = m;
-                    }
+        // Get the first non-defeated Pokemon
+        for (Pokemon pokemon : partyList) {
+            if (!pokemon.isDefeated()) {
+                if (pokemon.getMove() != null) {
+                    return pokemon.getMove();
                 }
-                return strongest;
             }
         }
         return null;
@@ -97,4 +103,3 @@ public class AITrainer {
         return sb.toString();
     }
 }
-

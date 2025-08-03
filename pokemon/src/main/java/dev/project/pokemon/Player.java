@@ -1,18 +1,18 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Player {
-    //attributes
+    // Attributes
     private String name;
     private ArrayList<Pokemon> pokemonCollection;
     private ArrayList<Pokemon> partyList; 
     private int score;
     private static final int MAX_PARTY_SIZE = 3;
 
-    //constructor
+    // Constructors
     public Player() {
         this.pokemonCollection = new ArrayList<>();
         this.partyList = new ArrayList<>();
+        this.score = 0;
     }
 
     public Player(String name) {
@@ -22,7 +22,7 @@ public class Player {
         this.score = 0;
     }
 
-    //setters and getters
+    // Getters and Setters
     public String getName() {
         return name;
     }
@@ -47,13 +47,12 @@ public class Player {
         return partyList;
     }
 
-    //other methods
+    // Other methods
     public Move chooseMove() {
-        if (!partyList.isEmpty()) {
-            Pokemon pokemon = partyList.get(0);
-            List<Move> moves = pokemon.getMoves();
-            if (!moves.isEmpty()) {
-                return moves.get(0); 
+        if (!partyList.isEmpty() && !partyList.get(0).isDefeated()) {
+            Pokemon currentPokemon = partyList.get(0);
+            if (currentPokemon.getMove() != null) {
+                return currentPokemon.getMove();
             }
         }
         return null;
@@ -61,9 +60,16 @@ public class Player {
 
     public void switchPokemon() {
         if (partyList.size() > 1) {
-            Pokemon current = partyList.remove(0);
-            partyList.add(current);
-            System.out.println("Switched to " + partyList.get(0).getName() + "!");
+            // Find next non-defeated Pokemon
+            for (int i = 1; i < partyList.size(); i++) {
+                if (!partyList.get(i).isDefeated()) {
+                    Pokemon current = partyList.remove(0);
+                    partyList.add(current);
+                    System.out.println("Switched to " + partyList.get(0).getName() + "!");
+                    return;
+                }
+            }
+            System.out.println("No other healthy Pokemon to switch to.");
         } else {
             System.out.println("No other Pokemon to switch to.");
         }
@@ -99,13 +105,12 @@ public class Player {
         }
     }
 
-    //toString method
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Trainer: ").append(name)
-          .append(" | Age: ").append(age)
-          .append(" | Party: ");
+        sb.append("Player: ").append(name)
+          .append(" | Score: ").append(score)
+          .append(" | Party: [");
         for (int i = 0; i < partyList.size(); i++) {
             sb.append(partyList.get(i).getName());
             if (i < partyList.size() - 1) {
@@ -116,4 +121,3 @@ public class Player {
         return sb.toString();
     }
 }
-
