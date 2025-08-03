@@ -1,3 +1,5 @@
+package dev.project.pokemon;
+
 public class Display {
     
     public void clearScreen() {

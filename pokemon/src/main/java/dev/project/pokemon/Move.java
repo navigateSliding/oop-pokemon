@@ -1,3 +1,5 @@
+package dev.project.pokemon;
+
 public class Move {
     // Attributes
     private String name;

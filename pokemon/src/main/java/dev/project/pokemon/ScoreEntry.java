@@ -1,3 +1,5 @@
+package dev.project.pokemon;
+
 public class ScoreEntry {
     // Attributes
     private String playerName;

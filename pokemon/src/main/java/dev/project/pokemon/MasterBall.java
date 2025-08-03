@@ -1,3 +1,5 @@
+package dev.project.pokemon;
+
 public class MasterBall extends PokeBall {
     public MasterBall() {
         super("Master Ball", 999.0); // Essentially 100% catch rate

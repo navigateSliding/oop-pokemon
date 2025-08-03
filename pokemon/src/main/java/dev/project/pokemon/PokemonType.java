@@ -1,3 +1,5 @@
+package dev.project.pokemon;
+
 import java.util.List;
 
 public enum PokemonType {
