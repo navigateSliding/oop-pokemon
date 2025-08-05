@@ -77,8 +77,6 @@ public class GameEngine {
             System.out.println("- Pokemon in collection: " + player.getPokemonCollection().size());
             System.out.println("- Pokemon in party: " + player.getPartyList().size());
             System.out.println("Current score: " + player.getScore());
-            
-            // Add pause so user can read the messages
             System.out.println("\nPress Enter to continue...");
             scanner.nextLine();
         } else {
@@ -115,7 +113,7 @@ public class GameEngine {
         System.out.println( "1. Charmander (Fire Type)\n" +
                             "2. Squirtle (Water Type)\n" +
                             "3. Bulbasaur (Grass Type)");
-        
+
         int choice;
         do {
             System.out.print("Choose your starter (1-3): ");
@@ -288,7 +286,6 @@ public class GameEngine {
             display.displayPokemonInfo(wildPokemon);
         } else {
             System.out.println(Display.getCatchFailed());
-//            TODO: ADD FUNCTION TO AGAIN
         }
     }
     
@@ -344,8 +341,9 @@ public class GameEngine {
             System.out.println( "\nOptions:\n" +
                                 "1. Add Pokemon to party\n" +
                                 "2. Remove Pokemon from party\n" +
-                                "3. View detailed Pokemon info\n" +
-                                "4. Back to main menu");
+                                "3. Heal Pokemon\n" +
+                                "4. View detailed Pokemon info\n" +
+                                "5. Back to main menu");
 
             System.out.print("Choose option (1-4): ");
             String choice = scanner.nextLine();
@@ -353,7 +351,8 @@ public class GameEngine {
             switch (choice) {
                 case "1" -> addPokemonToParty();
                 case "2" -> removePokemonFromParty();
-                case "3" -> viewDetailedPokemonInfo();
+                case "3" -> healPokemon();
+                case "4" -> viewDetailedPokemonInfo();
                 default -> {
                     // Return to main menu
                 }
@@ -418,6 +417,25 @@ public class GameEngine {
         }
     }
     
+  private void healPokemon() {
+        System.out.println("Choose Pokemon to heal:");
+        for (int i = 0; i < player.getPokemonCollection().size(); i++) {
+            System.out.println((i + 1) + ". " + player.getPokemonCollection().get(i).getName());
+        }
+
+        System.out.print("Choose Pokemon (1-" + player.getPokemonCollection().size() + "): ");
+
+        try {
+            int choice = Integer.parseInt(scanner.nextLine()) - 1;
+            if (choice >= 0 && choice < player.getPokemonCollection().size()) {
+                Pokemon chosen = player.getPokemonCollection().get(choice);
+                chosen.heal();
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid choice!");
+        }
+  } 
+
     /**
      * View detailed info for a specific Pokemon
      */

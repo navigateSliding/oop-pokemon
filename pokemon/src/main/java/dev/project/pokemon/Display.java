@@ -115,9 +115,6 @@ public class Display {
                 |  CATCH FAILED!                 |
                 |                                |
                 ==================================
-                
-                F - [ Fight ]
-                Q - [ Leave ]
                 """;
     }
     
