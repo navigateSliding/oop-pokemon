@@ -287,7 +287,7 @@ public class Battle {
                 int damage = calculateDamage(playerPokemon, opponent);
 
                 System.out.println(playerPokemon.getName() + " used " + availableMove.getName() + "!");
-                System.out.println( "Keep Clicking 'space' To Get 100% For Crit Damage\n +" +
+                System.out.println( "Keep Clicking 'space' To Get 100% For Crit Damage\n" +
                                     "Ready? (Press any button to continue)");
                 scanner.nextLine();
 
