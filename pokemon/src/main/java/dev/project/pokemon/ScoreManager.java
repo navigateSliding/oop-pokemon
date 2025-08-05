@@ -43,6 +43,7 @@ public class ScoreManager {
     
     public void displayTopScores() {
         System.out.println("\n=== TOP 5 HIGH SCORES ===");
+
         if (highScores.isEmpty()) {
             System.out.println("No scores recorded yet.");
         } else {

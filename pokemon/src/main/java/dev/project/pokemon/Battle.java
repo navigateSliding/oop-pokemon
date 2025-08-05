@@ -123,10 +123,10 @@ public class Battle {
             System.out.println("Wild " + wild.getName() + " (HP: " + wild.getHp() + "/" + wild.getMaxHp() + ")");
             System.out.println("Your " + playerPokemon.getName() + " (HP: " + playerPokemon.getHp() + "/" + playerPokemon.getMaxHp() + ")");
             
-            System.out.println("\nWhat will you do?");
-            System.out.println("C - Catch " + wild.getName());
-            System.out.println("F - Fight");
-            System.out.println("Q - Run away");
+            System.out.println( "\nWhat will you do?\n" +
+                                "C - Catch " + wild.getName() + "\n" +
+                                "F - Fight\n" +
+                                "Q - Run away\n");
             System.out.print("Choose action: ");
             
             String choice = scanner.nextLine().toUpperCase();
@@ -193,12 +193,11 @@ public class Battle {
         System.out.println("Wild " + opponent.getName() + " (HP: " + 
                          opponent.getHp() + "/" + opponent.getMaxHp() + ")");
         
-        System.out.println("\nWhat will " + playerPokemon.getName() + " do?");
-        System.out.println("1. Attack");
-        System.out.println("2. Switch Pokemon");
-        System.out.println("3. Back to main options");
+        System.out.println( "\nWhat will " + playerPokemon.getName() + " do?\n" +
+                            "1. Attack\n" +
+                            "2. Switch Pokemon\n" +
+                            "3. Back to main options");
         System.out.print("Choose action: ");
-        
         String choice = scanner.nextLine();
         
         switch (choice) {
@@ -227,12 +226,11 @@ public class Battle {
         System.out.println("Opponent " + opponent.getName() + " (HP: " + 
                          opponent.getHp() + "/" + opponent.getMaxHp() + ")");
         
-        System.out.println("\nWhat will " + playerPokemon.getName() + " do?");
-        System.out.println("1. Attack");
-        System.out.println("2. Switch Pokemon");
-        System.out.println("3. Run (if wild battle)");
+        System.out.println( "\nWhat will " + playerPokemon.getName() + " do?\n" +
+                            "1. Attack\n" +
+                            "2. Switch Pokemon\n" +
+                            "3. Run (if wild battle)");
         System.out.print("Choose action: ");
-        
         String choice = scanner.nextLine();
         
         switch (choice) {
@@ -287,10 +285,12 @@ public class Battle {
             case "1" -> {
                 // Use the move
                 int damage = calculateDamage(playerPokemon, opponent);
-                System.out.println(playerPokemon.getName() + " used " + availableMove.getName() + "!");
 
-                System.out.println("Keep Clicking 'space' To Get 100% For Crit Damage\nReady? (Press any button to continue)");
+                System.out.println(playerPokemon.getName() + " used " + availableMove.getName() + "!");
+                System.out.println( "Keep Clicking 'space' To Get 100% For Crit Damage\n +" +
+                                    "Ready? (Press any button to continue)");
                 scanner.nextLine();
+
                 inputHandler.progressInput(progress);
                 if (progress.getCurrentValue() >= 100) {
                     opponent.takeDamage(damage*2);
@@ -359,7 +359,7 @@ public class Battle {
         // Minimum damage of 1
         finalDamage = Math.max(1, finalDamage);
         
-        // Show effectiveness message
+        // Show effectiveness message (why is this here? !ask)
         if (effectiveness > 1.0) {
             System.out.println("It's super effective!");
         } else if (effectiveness < 1.0) {

@@ -112,9 +112,9 @@ public class GameEngine {
         Pokemon bulbasaur = new Pokemon("Bulbasaur", "001", 3, 80, 82, 83, 45, PokemonType.GRASS);
         bulbasaur.setMove(new Move("Vine Whip", PokemonType.GRASS, 45));
         
-        System.out.println("1. Charmander (Fire Type)");
-        System.out.println("2. Squirtle (Water Type)");
-        System.out.println("3. Bulbasaur (Grass Type)");
+        System.out.println( "1. Charmander (Fire Type)\n" +
+                            "2. Squirtle (Water Type)\n" +
+                            "3. Bulbasaur (Grass Type)");
         
         int choice;
         do {
@@ -160,8 +160,8 @@ public class GameEngine {
                 gameRunning = false;
             }
             default -> {
-                System.out.println("Invalid option! Please try again.");
-                System.out.println("Press Enter to continue...");
+                System.out.println( "Invalid option! Please try again.\n" +
+                                    "Press Enter to continue...");
                 scanner.nextLine();
             }
         }
@@ -172,8 +172,8 @@ public class GameEngine {
      */
     private void battleAndCatchMode() {
         if (player.getPartyList().isEmpty()) {
-            System.out.println("You need at least one Pokemon in your party to battle!");
-            System.out.println("Press Enter to continue...");
+            System.out.println( "You need at least one Pokemon in your party to battle!\n" +
+                                "Press Enter to continue...");
             scanner.nextLine();
             return;
         }
@@ -250,15 +250,16 @@ public class GameEngine {
      * Attempt to catch a wild Pokemon
      */
     private void attemptCatch(Pokemon wildPokemon) {
-        System.out.println("\n=== CATCHING ATTEMPT ===");
-        System.out.println("Choose your Poke Ball:");
-        System.out.println("1. Poke Ball (Standard)");
-        System.out.println("2. Great Ball (1.5x catch rate)");
-        System.out.println("3. Ultra Ball (2x catch rate)");
-        System.out.println("4. Master Ball (Guaranteed)");
-        
-        System.out.print("Choose ball (1-4): ");
         int ballChoice;
+
+        System.out.println( "\n=== CATCHING ATTEMPT ===\n" +
+                            "Choose your Poke Ball:\n" +
+                            "1. Poke Ball (Standard)\n" +
+                            "2. Great Ball (1.5x catch rate)\n" +
+                            "3. Ultra Ball (2x catch rate)\n" +
+                            "4. Master Ball (Guaranteed)\n");
+        System.out.print("Choose ball (1-4): ");
+
         try {
             ballChoice = Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException e) {
@@ -339,12 +340,12 @@ public class GameEngine {
         display.displayPlayerCollection(player);
         
         if (!player.getPokemonCollection().isEmpty()) {
-            System.out.println("\nOptions:");
-            System.out.println("1. Add Pokemon to party");
-            System.out.println("2. Remove Pokemon from party");
-            System.out.println("3. View detailed Pokemon info");
-            System.out.println("4. Back to main menu");
-            
+            System.out.println( "\nOptions:\n" +
+                                "1. Add Pokemon to party\n" +
+                                "2. Remove Pokemon from party\n" +
+                                "3. View detailed Pokemon info\n" +
+                                "4. Back to main menu");
+
             System.out.print("Choose option (1-4): ");
             String choice = scanner.nextLine();
             
