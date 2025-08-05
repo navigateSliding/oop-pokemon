@@ -1,5 +1,8 @@
 package dev.project.pokemon;
 
+import dev.project.pokemon.pokemon.Move;
+import dev.project.pokemon.pokemon.Pokemon;
+
 import java.util.ArrayList;
 import java.util.Collections;
 

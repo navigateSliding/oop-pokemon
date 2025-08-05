@@ -1,4 +1,6 @@
-package dev.project.pokemon;
+package dev.project.pokemon.player;
+
+import dev.project.pokemon.pokemon.Pokemon;
 
 public class MasterBall extends PokeBall {
     public MasterBall() {

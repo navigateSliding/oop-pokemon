@@ -1,5 +1,10 @@
 package dev.project.pokemon;
 
+import dev.project.pokemon.player.Player;
+import dev.project.pokemon.pokemon.Move;
+import dev.project.pokemon.pokemon.Pokemon;
+import dev.project.pokemon.pokemon.PokemonType;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;

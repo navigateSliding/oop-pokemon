@@ -1,4 +1,7 @@
-package dev.project.pokemon;
+package dev.project.pokemon.player;
+
+import dev.project.pokemon.pokemon.Move;
+import dev.project.pokemon.pokemon.Pokemon;
 
 import java.util.ArrayList;
 

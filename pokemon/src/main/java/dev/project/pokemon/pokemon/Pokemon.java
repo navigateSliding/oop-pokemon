@@ -1,4 +1,4 @@
-package dev.project.pokemon;
+package dev.project.pokemon.pokemon;
 
 import java.util.ArrayList;
 import java.util.List;

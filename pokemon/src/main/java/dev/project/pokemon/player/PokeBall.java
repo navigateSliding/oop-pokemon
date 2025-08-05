@@ -1,11 +1,13 @@
-package dev.project.pokemon;
+package dev.project.pokemon.player;
+
+import dev.project.pokemon.pokemon.Pokemon;
 
 import java.util.Random;
 
 /**
  * Abstract PokeBall class - base for all pokeball types
  */
-abstract class PokeBall {
+abstract public class PokeBall {
     // Protected attributes (accessible by subclasses)
     protected String name;
     protected double catchRateModifier;

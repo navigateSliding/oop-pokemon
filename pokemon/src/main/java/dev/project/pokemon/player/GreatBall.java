@@ -1,4 +1,4 @@
-package dev.project.pokemon;
+package dev.project.pokemon.player;
 
 public class GreatBall extends PokeBall {
     public GreatBall() {

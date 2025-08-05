@@ -1,5 +1,8 @@
 package dev.project.pokemon;
 
+import dev.project.pokemon.player.Player;
+import dev.project.pokemon.pokemon.Pokemon;
+
 public class Display {
     
     public void clearScreen() {
