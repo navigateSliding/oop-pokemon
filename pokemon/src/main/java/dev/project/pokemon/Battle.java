@@ -263,6 +263,7 @@ public class Battle {
      */
     private void showMoveSelection(Pokemon playerPokemon, Pokemon opponent) {
         System.out.println("\n--- SELECT MOVE ---");
+        progressBar progress = new progressBar(0, 100, 20);
         
         // Check if Pokemon has any moves
         if (playerPokemon.getMove() == null) {
@@ -287,7 +288,16 @@ public class Battle {
                 // Use the move
                 int damage = calculateDamage(playerPokemon, opponent);
                 System.out.println(playerPokemon.getName() + " used " + availableMove.getName() + "!");
-                opponent.takeDamage(damage);
+
+                System.out.println("Keep Clicking 'space' To Get 100% For Crit Damage\nReady? (Press any button to continue)");
+                scanner.nextLine();
+                inputHandler.progressInput(progress);
+                if (progress.getCurrentValue() >= 100) {
+                    opponent.takeDamage(damage*2);
+                } else if (progress.getCurrentValue() <= 0) {
+                    opponent.takeDamage(damage);
+                }
+
             }
             case "2" -> {
                 // Go back to main action menu

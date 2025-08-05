@@ -1,4 +1,4 @@
-package dev.project.pokemon.implementation;
+package dev.project.pokemon;
 
 import org.jline.terminal.Attributes;
 import org.jline.terminal.Terminal;
@@ -25,7 +25,7 @@ public class inputHandler {
                 int c = reader.read(100);
 
                 if (c == ' ') {
-                    progress.increaseProgress(1.5);
+                    progress.increaseProgress(3);
                     progress.printProgressBar();
 
                     waitLoad = true;
@@ -37,6 +37,10 @@ public class inputHandler {
                     if (waitLoad) {
                         waitLoad = false;
                         DelayTime = 50;
+                    }
+                    if (progress.getCurrentValue() <= 0) {
+                        System.out.println();
+                        return;
                     }
 
                     progress.decreaseProgress(1.5);

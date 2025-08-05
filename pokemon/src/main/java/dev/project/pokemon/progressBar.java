@@ -12,6 +12,7 @@ public class progressBar {
         this.progressMin = progressMin;
         this.progressMax = progressMax;
         this.progressBarLength = progressBarLength;
+        this.currentValue = progressMax / 4;
     }
 
     public double getCurrentValue() {
