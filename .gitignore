@@ -1,5 +1,7 @@
 ### My Own Additions ###
 .idea
+pokemon/target
+pokemon/META-INF
 
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,intellij+iml
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,intellij+iml

@@ -450,12 +450,4 @@ public class GameEngine {
         System.out.println("\nPress Enter to continue...");
         scanner.nextLine();
     }
-    
-    /**
-     * Main method to start the game
-     */
-    public static void main(String[] args) {
-        GameEngine game = new GameEngine();
-        game.startGame();
-    }
 }
