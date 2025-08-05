@@ -288,6 +288,7 @@ public class GameEngine {
             display.displayPokemonInfo(wildPokemon);
         } else {
             System.out.println(Display.getCatchFailed());
+//            TODO: ADD FUNCTION TO AGAIN
         }
     }
     

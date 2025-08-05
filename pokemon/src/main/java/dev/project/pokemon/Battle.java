@@ -11,27 +11,15 @@ import java.util.Scanner;
 public class Battle {
     // Attributes
     private final Player player;
-    private final AITrainer aiTrainer;
     private final ArrayList<Pokemon> wildPokemon;
     private final Display display;
     private final Scanner scanner;
     private boolean battleEnded;
-    private String battleResult; // "PLAYER_WIN", "AI_WIN", "DRAW"
+    private String battleResult; // "PLAYER_WIN", "AI_WIN", "DRAW" TODO: CHANGE TO ENUMERATION
     
     // Constructor
-    public Battle(Player player, AITrainer aiTrainer) {
-        this.player = player;
-        this.aiTrainer = aiTrainer;
-        this.wildPokemon = null;
-        this.display = new Display();
-        this.scanner = new Scanner(System.in);
-        this.battleEnded = false;
-    }
-    
-    // Constructor for wild Pokemon battle
     public Battle(Player player, ArrayList<Pokemon> wildPokemon) {
         this.player = player;
-        this.aiTrainer = null;
         this.wildPokemon = wildPokemon;
         this.display = new Display();
         this.scanner = new Scanner(System.in);
@@ -42,59 +30,10 @@ public class Battle {
      * Start the battle sequence
      */
     public void start() {
-        if (aiTrainer != null) {
-            startTrainerBattle();
-        } else if (wildPokemon != null && !wildPokemon.isEmpty()) {
+        if (wildPokemon != null && !wildPokemon.isEmpty()) {
             startWildBattle();
         } else {
             System.out.println("No valid battle opponent found!");
-        }
-    }
-    
-    /**
-     * Start battle against AI Trainer
-     */
-    private void startTrainerBattle() {
-        display.clearScreen();
-        System.out.println("=== TRAINER BATTLE STARTED ===");
-        System.out.println(player.getName() + " VS " + aiTrainer.getName());
-        
-        Pokemon playerPokemon = getPlayerActivePokemon();
-        Pokemon aiPokemon = getAIActivePokemon();
-        
-        if (playerPokemon == null || aiPokemon == null) {
-            System.out.println("Battle cannot start - missing Pokemon!");
-            return;
-        }
-        
-        System.out.println(player.getName() + " sends out " + playerPokemon.getName() + "!");
-        System.out.println(aiTrainer.getName() + " sends out " + aiPokemon.getName() + "!");
-        
-        // Battle loop
-        while (!battleEnded && !playerPokemon.isDefeated() && !aiPokemon.isDefeated()) {
-            // Determine turn order based on speed
-            if (playerPokemon.getSpeed() >= aiPokemon.getSpeed()) {
-                playerTurn(playerPokemon, aiPokemon);
-                if (!aiPokemon.isDefeated() && !battleEnded) {
-                    enemyTurn(aiPokemon, playerPokemon);
-                }
-            } else {
-                enemyTurn(aiPokemon, playerPokemon);
-                if (!playerPokemon.isDefeated() && !battleEnded) {
-                    playerTurn(playerPokemon, aiPokemon);
-                }
-            }
-        }
-        
-        // Determine battle result
-        if (playerPokemon.isDefeated()) {
-            battleResult = "AI_WIN";
-            System.out.println(playerPokemon.getName() + " was defeated!");
-            Display.getDefeatedMenu();
-        } else if (aiPokemon.isDefeated()) {
-            battleResult = "PLAYER_WIN";
-            System.out.println(aiPokemon.getName() + " was defeated!");
-            System.out.println("You won the battle!");
         }
     }
     
@@ -320,13 +259,8 @@ public class Battle {
         
         Move enemyMove = null;
         String trainerName = "Wild Pokemon";
-        
-        if (aiTrainer != null) {
-            enemyMove = aiTrainer.autoChooseMove();
-            trainerName = aiTrainer.getName();
-        } else {
-            enemyMove = enemyPokemon.getMove();
-        }
+
+        enemyMove = enemyPokemon.getMove();
         
         if (enemyMove != null) {
             int damage = calculateDamage(enemyPokemon, playerPokemon);
@@ -384,21 +318,6 @@ public class Battle {
             return null;
         }
         return player.getPartyList().get(0);
-    }
-    
-    /**
-     * Get AI's active Pokemon (first in party)
-     */
-    private Pokemon getAIActivePokemon() {
-        if (aiTrainer == null || aiTrainer.getPartyList().isEmpty()) {
-            return null;
-        }
-        return aiTrainer.getPartyList().get(0);
-    }
-    
-    // Getters
-    public boolean isBattleEnded() {
-        return battleEnded;
     }
     
     public String getBattleResult() {

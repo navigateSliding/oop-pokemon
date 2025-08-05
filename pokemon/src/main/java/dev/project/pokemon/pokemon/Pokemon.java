@@ -48,16 +48,8 @@ public class Pokemon {
         return pokemonId;
     }
     
-    public void setPokemonId(String pokemonId) {
-        this.pokemonId = pokemonId;
-    }
-    
     public int getGrade() {
         return grade;
-    }
-    
-    public void setGrade(int grade) {
-        this.grade = grade;
     }
     
     public int getHp() {
@@ -72,32 +64,16 @@ public class Pokemon {
         return maxHp;
     }
     
-    public void setMaxHp(int maxHp) {
-        this.maxHp = maxHp;
-    }
-    
     public int getAttack() {
         return attack;
-    }
-    
-    public void setAttack(int attack) {
-        this.attack = attack;
     }
     
     public int getDefense() {
         return defense;
     }
     
-    public void setDefense(int defense) {
-        this.defense = defense;
-    }
-    
     public int getSpeed() {
         return speed;
-    }
-    
-    public void setSpeed(int speed) {
-        this.speed = speed;
     }
     
     public Move getMove() {
@@ -112,11 +88,7 @@ public class Pokemon {
         return type;
     }
     
-    public void setType(PokemonType type) {
-        this.type = type;
-    }
-    
-    // Added getMoves() method for compatibility
+    // TODO: need this if we use multiple moves
     public List<Move> getMoves() {
         List<Move> moves = new ArrayList<>();
         if (move != null) {

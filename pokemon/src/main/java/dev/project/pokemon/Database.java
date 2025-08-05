@@ -372,18 +372,6 @@ public class Database {
     }
     
     /**
-     * Load player data from file - LEGACY method for backward compatibility
-     * @return Player object or new Player if file doesn't exist
-     */
-    public Player loadPlayer() {
-        ArrayList<Player> allPlayers = loadAllPlayers();
-        if (!allPlayers.isEmpty()) {
-            return allPlayers.get(0); // Return first player for backward compatibility
-        }
-        return new Player();
-    }
-    
-    /**
      * Handle a single line of player data based on current section
      */
     private void handlePlayerDataLine(Player player, String section, String line) {

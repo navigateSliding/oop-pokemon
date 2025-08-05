@@ -20,15 +20,6 @@ public class ScoreEntry {
         return score;
     }
     
-    // Setters (if needed)
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
-    }
-    
-    public void setScore(int score) {
-        this.score = score;
-    }
-    
     @Override
     public String toString() {
         return playerName + " - " + score + " points";
