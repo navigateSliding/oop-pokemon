@@ -1,5 +1,6 @@
-package dev.project.pokemon;
+package dev.project.pokemon.battle;
 
+import dev.project.pokemon.display.Display;
 import dev.project.pokemon.player.Player;
 import dev.project.pokemon.pokemon.Move;
 import dev.project.pokemon.pokemon.Pokemon;

@@ -1,4 +1,4 @@
-package dev.project.pokemon;
+package dev.project.pokemon.battle;
 
 // inspo: https://masterex.github.io/archive/2011/10/23/java-cli-progress-bar.html
 

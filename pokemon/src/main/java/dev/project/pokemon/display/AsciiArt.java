@@ -1,4 +1,4 @@
-package dev.project.pokemon;
+package dev.project.pokemon.display;
 
 public class AsciiArt {
 	public static String getLogo() {

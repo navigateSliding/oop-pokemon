@@ -1,4 +1,4 @@
-package dev.project.pokemon;
+package dev.project.pokemon.battle;
 
 public class ScoreEntry {
     // Attributes

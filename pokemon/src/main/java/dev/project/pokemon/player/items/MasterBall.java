@@ -1,4 +1,4 @@
-package dev.project.pokemon.player;
+package dev.project.pokemon.player.items;
 
 import dev.project.pokemon.pokemon.Pokemon;
 

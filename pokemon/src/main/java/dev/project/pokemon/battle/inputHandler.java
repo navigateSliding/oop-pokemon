@@ -1,4 +1,4 @@
-package dev.project.pokemon;
+package dev.project.pokemon.battle;
 
 import org.jline.terminal.Attributes;
 import org.jline.terminal.Terminal;

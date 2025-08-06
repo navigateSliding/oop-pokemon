@@ -1,5 +1,7 @@
 
-package dev.project.pokemon;
+package dev.project.pokemon.battle;
+import dev.project.pokemon.Database;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
