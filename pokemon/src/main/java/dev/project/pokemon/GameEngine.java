@@ -423,7 +423,6 @@ public class GameEngine {
             if (choice >= 0 && choice < player.getPokemonCollection().size()) {
                 Pokemon chosen = player.getPokemonCollection().get(choice);
                 chosen.heal();
-//                TODO: Well that is a bit broken (cause of database)
             }
         } catch (NumberFormatException e) {
             System.out.println("Invalid choice!");
