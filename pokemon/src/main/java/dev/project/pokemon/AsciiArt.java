@@ -1,7 +1,7 @@
-package dev.project.pokemon.implementation;
+package dev.project.pokemon;
 
 public class AsciiArt {
-	public static String getStartMenu() {
+	public static String getLogo() {
 //		Using ANSI Shadow from https://www.asciiart.eu/text-to-ascii-art
 		return """
 				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
@@ -14,21 +14,21 @@ public class AsciiArt {
 				▐ ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ▌
 				▐                                                                 ▌
 				▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
-				
-				 P - [ Start Game ]
-				 Q - [ Quit ]
 				""";
 	}
-	public static String getPauseMenu() {
+	public static String getStartMenu() {
 		return """
-				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
-				▐        Pause           ▌
-				▐  P - [ Resume ]     	 ▌
-				▐  L - [ Pokemon List ]  ▌
-				▐  I - [ Inventory ]  	 ▌
-				▐  Q - [ Quit ]          ▌
-				▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
-				""";
+                ▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
+                ▐                                             ▌
+                ▐        POKEMON BATTLE & CATCH GAME          ▌
+                ▐                                             ▌
+                ▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
+                
+                 P - [ Start Game ]
+                 L - [ View Pokemon ]
+                 S - [ High Scores ]
+                 Q - [ Quit ]
+                """;
 	}
 	public static String getPokemonEncounter() {
 		return """
@@ -54,12 +54,9 @@ public class AsciiArt {
 				▐  ░▀▀▀░▀░▀░░▀░░▀▀▀░▀░▀░░░▀░░░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀▀░  ▌
 				▐                                                  ▌
 				▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
-				
-				F - [ Fight ]
-				Q - [ Leave ]
 				""";
 	}
-	public static String getDefeatedMenu() {
+	public static String getDefeat() {
 //		Using Pagga Font from https://www.asciiart.eu/text-to-ascii-art
 		return """
 				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌

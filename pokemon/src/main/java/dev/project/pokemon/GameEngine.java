@@ -42,7 +42,7 @@ public class GameEngine {
      */
     public void startGame() {
         display.clearScreen();
-        System.out.println("Welcome to Pokemon Battle & Catch!");
+        display.displayTitleScreenMenu();
         
         // Initialize player
         initializePlayer();
@@ -136,17 +136,13 @@ public class GameEngine {
         
         System.out.println("You chose " + starter.getName() + "!");
         display.displayPokemonInfo(starter);
-        
-        System.out.println("\nPress Enter to continue...");
-        scanner.nextLine();
     }
     
     /**
      * Main menu handling
      */
     private void mainMenu() {
-        System.out.println(Display.getStartMenu());
-        System.out.print("Choose option: ");
+        display.displayStartMenu();
         String choice = scanner.nextLine().toUpperCase();
         
         switch (choice) {
@@ -285,7 +281,7 @@ public class GameEngine {
             
             display.displayPokemonInfo(wildPokemon);
         } else {
-            System.out.println(Display.getCatchFailed());
+            display.displayCatchFailed();
         }
     }
     
@@ -345,7 +341,7 @@ public class GameEngine {
                                 "4. View detailed Pokemon info\n" +
                                 "5. Back to main menu");
 
-            System.out.print("Choose option (1-4): ");
+            System.out.print("Choose option (1-5): ");
             String choice = scanner.nextLine();
             
             switch (choice) {
@@ -418,6 +414,9 @@ public class GameEngine {
     }
     
   private void healPokemon() {
+        System.out.println("debug1:" + player.getPartyList() + "debug2:" + player.getPokemonCollection());
+        System.out.println("debug3:" + System.identityHashCode(player.getPartyList().get(0)) + "debug4:" + System.identityHashCode(player.getPokemonCollection().get(3)));
+
         System.out.println("Choose Pokemon to heal:");
         for (int i = 0; i < player.getPokemonCollection().size(); i++) {
             System.out.println((i + 1) + ". " + player.getPokemonCollection().get(i).getName());
@@ -430,6 +429,7 @@ public class GameEngine {
             if (choice >= 0 && choice < player.getPokemonCollection().size()) {
                 Pokemon chosen = player.getPokemonCollection().get(choice);
                 chosen.heal();
+//                TODO: Well that is a bit broken
             }
         } catch (NumberFormatException e) {
             System.out.println("Invalid choice!");

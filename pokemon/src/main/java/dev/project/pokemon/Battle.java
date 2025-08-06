@@ -95,8 +95,8 @@ public class Battle {
         // Check battle result
         if (playerPokemon.isDefeated()) {
             battleResult = "WILD_WIN";
-            System.out.println(playerPokemon.getName() + " was defeated!");
-            Display.getDefeatedMenu();
+            display.displayDefeat();
+            System.out.println(playerPokemon.getName() + " was defeated!"); //TODO: MOVE THESE
         } else if (wild.isDefeated()) {
             battleResult = "PLAYER_WIN";
             System.out.println("Wild " + wild.getName() + " was defeated!");
@@ -205,7 +205,7 @@ public class Battle {
         double randomChance = random.nextDouble();
 
         System.out.println("\n--- SELECT MOVE ---");
-        
+
         // Check if Pokemon has any moves
         if (playerPokemon.getMove() == null) {
             System.out.println(playerPokemon.getName() + " has no moves available!");

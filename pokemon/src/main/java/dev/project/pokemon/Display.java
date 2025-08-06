@@ -20,12 +20,30 @@ public class Display {
             }
         }
     }
-    
+
+    public void displayTitleScreenMenu() {
+        System.out.println(AsciiArt.getLogo());
+        System.out.println("Welcome to Pokemon Battle & Catch!");
+    }
+
+    public void displayStartMenu() {
+        System.out.println(AsciiArt.getStartMenu());
+        System.out.print("Choose option: ");
+    }
+
+    public void displayCatchFailed() {
+        System.out.println(AsciiArt.getCatchFailed());
+    }
+
+    public void displayDefeat() {
+        System.out.println(AsciiArt.getDefeat());
+    }
+
     public void displayGameOver() {
         System.out.println("\n=== GAME OVER ===");
         System.out.println("Thanks for playing!");
     }
-    
+
     public void displayPokemonInfo(Pokemon pokemon) {
         System.out.println("\n=== POKEMON INFO ===");
         System.out.println("Name: " + pokemon.getName());
@@ -66,65 +84,4 @@ public class Display {
             }
         }
     }
-    
-    public static String getStartMenu() {
-        return """
-                ===============================================
-                |                                             |
-                |  POKEMON BATTLE & CATCH GAME                |
-                |                                             |
-                ===============================================
-                
-                 P - [ Start Game ]
-                 L - [ View Pokemon ]
-                 S - [ High Scores ]
-                 Q - [ Quit ]
-                """;
-    }
-    
-    public static String getPauseMenu() {
-        return """
-                ========================
-                |        Pause         |
-                |  P - [ Resume ]      |
-                |  L - [ Pokemon List ]|
-                |  I - [ Inventory ]   |
-                |  Q - [ Quit ]        |
-                ========================
-                """;
-    }
-    
-    public static String getPokemonEncounter() {
-        return """
-                ================================================================
-                |                                                              |
-                |  POKEMON ENCOUNTER!                                          |
-                |                                                              |
-                ================================================================
-                
-                C - [ Catch ]
-                F - [ Fight ]
-                Q - [ Leave ]
-                """;
-    }
-    
-    public static String getCatchFailed() {
-        return """
-                ==================================
-                |                                |
-                |  CATCH FAILED!                 |
-                |                                |
-                ==================================
-                """;
-    }
-    
-    public static String getDefeatedMenu() {
-        return """
-                ============================
-                |                          |
-                |  DEFEAT!                 |
-                |                          |
-                ============================
-                """;
-    } 
 }
