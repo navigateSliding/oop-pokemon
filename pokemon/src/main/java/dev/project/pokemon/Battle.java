@@ -6,6 +6,7 @@ import dev.project.pokemon.pokemon.Pokemon;
 import dev.project.pokemon.pokemon.PokemonType;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Battle {
@@ -199,8 +200,11 @@ public class Battle {
      * Show move selection interface
      */
     private void showMoveSelection(Pokemon playerPokemon, Pokemon opponent) {
-        System.out.println("\n--- SELECT MOVE ---");
+        Random random = new Random();
         progressBar progress = new progressBar(0, 100, 20);
+        double randomChance = random.nextDouble();
+
+        System.out.println("\n--- SELECT MOVE ---");
         
         // Check if Pokemon has any moves
         if (playerPokemon.getMove() == null) {
@@ -226,17 +230,20 @@ public class Battle {
                 int damage = calculateDamage(playerPokemon, opponent);
 
                 System.out.println(playerPokemon.getName() + " used " + availableMove.getName() + "!");
-                System.out.println( "Keep Clicking 'space' To Get 100% For Crit Damage\n" +
-                                    "Ready? (Press any button to continue)");
-                scanner.nextLine();
 
-                inputHandler.progressInput(progress);
-                if (progress.getCurrentValue() >= 100) {
-                    opponent.takeDamage(damage*2);
-                } else if (progress.getCurrentValue() <= 0) {
-                    opponent.takeDamage(damage);
+                if (randomChance < 0.4) {
+                    System.out.println( "Keep Clicking 'space' To Get 100% For Crit Damage\n" +
+                            "Ready? (Press any button to continue)");
+                    scanner.nextLine();
+
+                    inputHandler.progressInput(progress);
+                    if (progress.getCurrentValue() >= 100) {
+                        opponent.takeDamage(damage*2);
+                    }
+                    break;
                 }
 
+                opponent.takeDamage(damage);
             }
             case "2" -> {
                 // Go back to main action menu
