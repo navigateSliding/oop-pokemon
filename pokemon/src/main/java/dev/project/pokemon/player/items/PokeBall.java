@@ -63,8 +63,4 @@ abstract public class PokeBall {
     public String getName() {
         return name;
     }
-    
-    public double getCatchRateModifier() {
-        return catchRateModifier;
-    }
 }

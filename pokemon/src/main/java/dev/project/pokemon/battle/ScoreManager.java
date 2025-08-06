@@ -43,19 +43,6 @@ public class ScoreManager {
         return new ArrayList<>(highScores);
     }
     
-    public void displayTopScores() {
-        System.out.println("\n=== TOP 5 HIGH SCORES ===");
-
-        if (highScores.isEmpty()) {
-            System.out.println("No scores recorded yet.");
-        } else {
-            for (int i = 0; i < highScores.size(); i++) {
-                System.out.println((i + 1) + ". " + highScores.get(i));
-            }
-        }
-        System.out.println("========================\n");
-    }
-    
     // Added missing method that GameEngine calls
     public boolean isHighScore(int score) {
         if (highScores.size() < MAX_HIGH_SCORES) {

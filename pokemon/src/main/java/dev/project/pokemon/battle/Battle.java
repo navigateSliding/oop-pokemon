@@ -59,16 +59,7 @@ public class Battle {
         
         // Battle loop
         while (!battleEnded && !playerPokemon.isDefeated() && !wild.isDefeated()) {
-            // Show wild Pokemon battle options
-            System.out.println("\n=== WILD POKEMON BATTLE ===");
-            System.out.println("Wild " + wild.getName() + " (HP: " + wild.getHp() + "/" + wild.getMaxHp() + ")");
-            System.out.println("Your " + playerPokemon.getName() + " (HP: " + playerPokemon.getHp() + "/" + playerPokemon.getMaxHp() + ")");
-            
-            System.out.println( "\nWhat will you do?\n" +
-                                "C - Catch " + wild.getName() + "\n" +
-                                "F - Fight\n" +
-                                "Q - Run away\n");
-            System.out.print("Choose action: ");
+            display.displayWildPokemonBattleOptions(wild, playerPokemon);
             
             String choice = scanner.nextLine().toUpperCase();
             
@@ -123,22 +114,12 @@ public class Battle {
             }
         }
     }
-    
+
     /**
      * Handle player's turn in wild battle with move selection
      */
     private void wildPlayerTurn(Pokemon playerPokemon, Pokemon opponent) {
-        System.out.println("\n=== " + player.getName() + "'s Turn ===");
-        System.out.println("Your " + playerPokemon.getName() + " (HP: " + 
-                         playerPokemon.getHp() + "/" + playerPokemon.getMaxHp() + ")");
-        System.out.println("Wild " + opponent.getName() + " (HP: " + 
-                         opponent.getHp() + "/" + opponent.getMaxHp() + ")");
-        
-        System.out.println( "\nWhat will " + playerPokemon.getName() + " do?\n" +
-                            "1. Attack\n" +
-                            "2. Switch Pokemon\n" +
-                            "3. Back to main options");
-        System.out.print("Choose action: ");
+        display.displayPlayerTurn(player, opponent, playerPokemon);
         String choice = scanner.nextLine();
         
         switch (choice) {
@@ -161,17 +142,7 @@ public class Battle {
      * Handle player's turn with improved move selection
      */
     private void playerTurn(Pokemon playerPokemon, Pokemon opponent) {
-        System.out.println("\n=== " + player.getName() + "'s Turn ===");
-        System.out.println("Your " + playerPokemon.getName() + " (HP: " + 
-                         playerPokemon.getHp() + "/" + playerPokemon.getMaxHp() + ")");
-        System.out.println("Opponent " + opponent.getName() + " (HP: " + 
-                         opponent.getHp() + "/" + opponent.getMaxHp() + ")");
-        
-        System.out.println( "\nWhat will " + playerPokemon.getName() + " do?\n" +
-                            "1. Attack\n" +
-                            "2. Switch Pokemon\n" +
-                            "3. Run (if wild battle)");
-        System.out.print("Choose action: ");
+        display.displayPlayerTurn(player, opponent, playerPokemon);
         String choice = scanner.nextLine();
         
         switch (choice) {
@@ -213,15 +184,15 @@ public class Battle {
             System.out.println(playerPokemon.getName() + " struggles but does no damage!");
             return;
         }
-        
+
         // Display available move
         Move availableMove = playerPokemon.getMove();
         System.out.println("Available moves:");
-        System.out.println("1. " + availableMove.getName() + 
-                         " (Type: " + availableMove.getMoveType() + 
+        System.out.println("1. " + availableMove.getName() +
+                         " (Type: " + availableMove.getMoveType() +
                          ", Power: " + availableMove.getPower() + ")");
         System.out.println("2. Back to action menu");
-        
+
         System.out.print("Choose move (1-2): ");
         String moveChoice = scanner.nextLine();
         
@@ -263,12 +234,11 @@ public class Battle {
      * Handle enemy's turn (AI or wild Pokemon)
      */
     private void enemyTurn(Pokemon enemyPokemon, Pokemon playerPokemon) {
-        System.out.println("\n=== Opponent's Turn ===");
-        
         Move enemyMove = null;
         String trainerName = "Wild Pokemon";
-
         enemyMove = enemyPokemon.getMove();
+
+        System.out.println("\n=== Opponent's Turn ===");
         
         if (enemyMove != null) {
             int damage = calculateDamage(enemyPokemon, playerPokemon);

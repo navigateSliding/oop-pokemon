@@ -1,7 +1,10 @@
 package dev.project.pokemon.display;
 
+import dev.project.pokemon.battle.ScoreEntry;
 import dev.project.pokemon.player.Player;
 import dev.project.pokemon.pokemon.Pokemon;
+
+import java.util.ArrayList;
 
 public class Display {
     
@@ -26,6 +29,13 @@ public class Display {
         System.out.println("Welcome to Pokemon Battle & Catch!");
     }
 
+    public void displayGiveStarterPokemon() {
+        System.out.println("\n=== CHOOSE YOUR STARTER POKEMON ===");
+        System.out.println( "1. Charmander (Fire Type)\n" +
+                            "2. Squirtle (Water Type)\n" +
+                            "3. Bulbasaur (Grass Type)");
+    }
+
     public void displayStartMenu() {
         System.out.println(AsciiArt.getStartMenu());
         System.out.print("Choose option: ");
@@ -42,6 +52,42 @@ public class Display {
     public void displayGameOver() {
         System.out.println("\n=== GAME OVER ===");
         System.out.println("Thanks for playing!");
+    }
+
+    public void displayWildPokemonBattleOptions(Pokemon wild, Pokemon playerPokemon) {
+        System.out.println("\n=== WILD POKEMON BATTLE ===");
+        System.out.println("Wild " + wild.getName() + " (HP: " + wild.getHp() + "/" + wild.getMaxHp() + ")");
+        System.out.println("Your " + playerPokemon.getName() + " (HP: " + playerPokemon.getHp() + "/" + playerPokemon.getMaxHp() + ")");
+
+        System.out.println( "\nWhat will you do?\n" +
+                "C - Catch " + wild.getName() + "\n" +
+                "F - Fight\n" +
+                "Q - Run away\n");
+        System.out.print("Choose action: ");
+    }
+
+    public void displayPlayerTurn(Player player, Pokemon wild, Pokemon playerPokemon) {
+        System.out.println("\n=== " + player.getName() + "'s Turn ===");
+        System.out.println("Your " + playerPokemon.getName() + " (HP: " +
+                playerPokemon.getHp() + "/" + playerPokemon.getMaxHp() + ")");
+        System.out.println("Wild " + wild.getName() + " (HP: " +
+                wild.getHp() + "/" + wild.getMaxHp() + ")");
+
+        System.out.println( "\nWhat will " + playerPokemon.getName() + " do?\n" +
+                "1. Attack\n" +
+                "2. Switch Pokemon\n" +
+                "3. Back to main options");
+        System.out.print("Choose action: ");
+    }
+
+    public void displayAttemptCatch() {
+        System.out.println( "\n=== CATCHING ATTEMPT ===\n" +
+                "Choose your Poke Ball:\n" +
+                "1. Poke Ball (Standard)\n" +
+                "2. Great Ball (1.5x catch rate)\n" +
+                "3. Ultra Ball (2x catch rate)\n" +
+                "4. Master Ball (Guaranteed)\n");
+        System.out.print("Choose ball (1-4): ");
     }
 
     public void displayPokemonInfo(Pokemon pokemon) {
@@ -83,5 +129,19 @@ public class Display {
                 System.out.println((i + 1) + ". " + p.getDisplayInfo() + inParty);
             }
         }
+    }
+
+    public void displayTopScores(ArrayList<ScoreEntry> highScores) {
+        System.out.println("\n=== HIGH SCORES ===");
+        System.out.println("\n=== TOP 5 HIGH SCORES ===");
+
+        if (highScores.isEmpty()) {
+            System.out.println("No scores recorded yet.");
+        } else {
+            for (int i = 0; i < highScores.size(); i++) {
+                System.out.println((i + 1) + ". " + highScores.get(i));
+            }
+        }
+        System.out.println("========================\n");
     }
 }

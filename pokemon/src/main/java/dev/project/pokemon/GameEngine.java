@@ -102,7 +102,7 @@ public class GameEngine {
      * Give player a starter Pokemon
      */
     private void giveStarterPokemon() {
-        System.out.println("\n=== CHOOSE YOUR STARTER POKEMON ===");
+        int choice;
         
         // Create starter options
         Pokemon charmander = new Pokemon("Charmander", "004", 3, 78, 84, 78, 65, PokemonType.FIRE);
@@ -113,12 +113,9 @@ public class GameEngine {
         
         Pokemon bulbasaur = new Pokemon("Bulbasaur", "001", 3, 80, 82, 83, 45, PokemonType.GRASS);
         bulbasaur.setMove(new Move("Vine Whip", PokemonType.GRASS, 45));
-        
-        System.out.println( "1. Charmander (Fire Type)\n" +
-                            "2. Squirtle (Water Type)\n" +
-                            "3. Bulbasaur (Grass Type)");
 
-        int choice;
+        display.displayGiveStarterPokemon();
+
         do {
             System.out.print("Choose your starter (1-3): ");
             try {
@@ -169,27 +166,29 @@ public class GameEngine {
      * Battle and catch mode - core gameplay
      */
     private void battleAndCatchMode() {
+        int choice;
+
         if (player.getPartyList().isEmpty()) {
             System.out.println( "You need at least one Pokemon in your party to battle!\n" +
                                 "Press Enter to continue...");
             scanner.nextLine();
             return;
         }
-        
-        display.clearScreen();
-        System.out.println("\n=== ENTERING WILD AREA ===");
-        
+
         // Generate random wild Pokemon encounters (1-3 Pokemon)
         ArrayList<Pokemon> encounter = generateWildEncounter();
-        
-        System.out.println("You encountered wild Pokemon!");
+
+        display.clearScreen();
+        System.out.println("\n=== ENTERING WILD AREA ===" +
+                            "You encountered wild Pokemon!");
+
         for (int i = 0; i < encounter.size(); i++) {
             System.out.println((i + 1) + ". " + encounter.get(i).getDisplayInfo());
         }
         
         // Let player choose which Pokemon to battle
         System.out.print("Choose Pokemon to battle (1-" + encounter.size() + "): ");
-        int choice;
+
         try {
             choice = Integer.parseInt(scanner.nextLine()) - 1;
         } catch (NumberFormatException e) {
@@ -250,13 +249,7 @@ public class GameEngine {
     private void attemptCatch(Pokemon wildPokemon) {
         int ballChoice;
 
-        System.out.println( "\n=== CATCHING ATTEMPT ===\n" +
-                            "Choose your Poke Ball:\n" +
-                            "1. Poke Ball (Standard)\n" +
-                            "2. Great Ball (1.5x catch rate)\n" +
-                            "3. Ultra Ball (2x catch rate)\n" +
-                            "4. Master Ball (Guaranteed)\n");
-        System.out.print("Choose ball (1-4): ");
+        display.displayAttemptCatch();
 
         try {
             ballChoice = Integer.parseInt(scanner.nextLine());
@@ -418,9 +411,6 @@ public class GameEngine {
     }
     
   private void healPokemon() {
-        System.out.println("debug1:" + player.getPartyList() + "debug2:" + player.getPokemonCollection());
-        System.out.println("debug3:" + System.identityHashCode(player.getPartyList().get(0)) + "debug4:" + System.identityHashCode(player.getPokemonCollection().get(3)));
-
         System.out.println("Choose Pokemon to heal:");
         for (int i = 0; i < player.getPokemonCollection().size(); i++) {
             System.out.println((i + 1) + ". " + player.getPokemonCollection().get(i).getName());
@@ -433,7 +423,7 @@ public class GameEngine {
             if (choice >= 0 && choice < player.getPokemonCollection().size()) {
                 Pokemon chosen = player.getPokemonCollection().get(choice);
                 chosen.heal();
-//                TODO: Well that is a bit broken
+//                TODO: Well that is a bit broken (cause of database)
             }
         } catch (NumberFormatException e) {
             System.out.println("Invalid choice!");
@@ -466,8 +456,7 @@ public class GameEngine {
      */
     private void viewTopScores() {
         display.clearScreen();
-        System.out.println("\n=== HIGH SCORES ===");
-        scoreManager.displayTopScores();
+        display.displayTopScores(scoreManager.getTopScores());
         
         // Check if current player's score qualifies
         if (scoreManager.isHighScore(player.getScore())) {
