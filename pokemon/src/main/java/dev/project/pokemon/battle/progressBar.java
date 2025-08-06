@@ -43,7 +43,4 @@ public class progressBar {
 
         System.out.printf("%s %.2f%%\r", progressBar, currentValue);
     }
-    public void resetProgress() {
-
-    }
 }

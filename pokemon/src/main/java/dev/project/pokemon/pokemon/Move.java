@@ -26,21 +26,8 @@ public class Move {
         return power;
     }
     
-    public void setPower(int power) {
-        this.power = power;
-    }
-    
     public PokemonType getMoveType() {
         return moveType;
-    }
-    
-    public void setMoveType(PokemonType moveType) {
-        this.moveType = moveType;
-    }
-    
-    // Methods
-    public void useMove() {
-        System.out.println("Using move: " + name + " (Power: " + power + ")");
     }
     
     @Override

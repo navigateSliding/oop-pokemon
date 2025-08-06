@@ -301,8 +301,4 @@ public class Battle {
     public String getBattleResult() {
         return battleResult;
     }
-    
-    public ArrayList<Pokemon> getWildPokemon() {
-        return wildPokemon;
-    }
 }

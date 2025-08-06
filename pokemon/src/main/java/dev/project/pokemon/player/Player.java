@@ -53,16 +53,6 @@ public class Player {
     }
 
     // Other methods
-    public Move chooseMove() {
-        if (!partyList.isEmpty() && !partyList.get(0).isDefeated()) {
-            Pokemon currentPokemon = partyList.get(0);
-            if (currentPokemon.getMove() != null) {
-                return currentPokemon.getMove();
-            }
-        }
-        return null;
-    }
-
     public void switchPokemon() {
         if (partyList.size() > 1) {
             // Find next non-defeated Pokemon
