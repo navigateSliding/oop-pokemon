@@ -188,9 +188,7 @@ public class Battle {
         // Display available move
         Move availableMove = playerPokemon.getMove();
         System.out.println("Available moves:");
-        System.out.println("1. " + availableMove.getName() +
-                         " (Type: " + availableMove.getMoveType() +
-                         ", Power: " + availableMove.getPower() + ")");
+        System.out.printf("1. %s (Type: %s, Power: %s)", availableMove.getName(), availableMove.getMoveType(), availableMove.getPower());
         System.out.println("2. Back to action menu");
 
         System.out.print("Choose move (1-2): ");

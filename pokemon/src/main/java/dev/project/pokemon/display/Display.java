@@ -30,8 +30,8 @@ public class Display {
     }
 
     public void displayGiveStarterPokemon() {
-        System.out.println("\n=== CHOOSE YOUR STARTER POKEMON ===");
-        System.out.println( "1. Charmander (Fire Type)\n" +
+        System.out.println( "\n=== CHOOSE YOUR STARTER POKEMON ===\n" +
+                            "1. Charmander (Fire Type)\n" +
                             "2. Squirtle (Water Type)\n" +
                             "3. Bulbasaur (Grass Type)");
     }
@@ -60,9 +60,9 @@ public class Display {
         System.out.println("Your " + playerPokemon.getName() + " (HP: " + playerPokemon.getHp() + "/" + playerPokemon.getMaxHp() + ")");
 
         System.out.println( "\nWhat will you do?\n" +
-                "C - Catch " + wild.getName() + "\n" +
-                "F - Fight\n" +
-                "Q - Run away\n");
+                            "C - Catch " + wild.getName() + "\n" +
+                            "F - Fight\n" +
+                            "Q - Run away\n");
         System.out.print("Choose action: ");
     }
 
@@ -74,9 +74,9 @@ public class Display {
                 wild.getHp() + "/" + wild.getMaxHp() + ")");
 
         System.out.println( "\nWhat will " + playerPokemon.getName() + " do?\n" +
-                "1. Attack\n" +
-                "2. Switch Pokemon\n" +
-                "3. Back to main options");
+                            "1. Attack\n" +
+                            "2. Switch Pokemon\n" +
+                            "3. Back to main options");
         System.out.print("Choose action: ");
     }
 

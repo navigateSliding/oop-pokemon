@@ -179,7 +179,7 @@ public class GameEngine {
         ArrayList<Pokemon> encounter = generateWildEncounter();
 
         display.clearScreen();
-        System.out.println("\n=== ENTERING WILD AREA ===" +
+        System.out.println("\n=== ENTERING WILD AREA ===\n" +
                             "You encountered wild Pokemon!");
 
         for (int i = 0; i < encounter.size(); i++) {
