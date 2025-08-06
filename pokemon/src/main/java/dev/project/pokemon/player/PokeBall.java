@@ -30,7 +30,7 @@ abstract public class PokeBall {
         
         // Base catch rate calculation
         // Lower HP = easier to catch, higher grade = harder to catch
-        double baseRate = 0.3; // 30% base catch rate
+        double baseCatchRate = 0.3; // 30% base catch rate
         
         // HP factor (lower HP = higher catch rate)
         double hpFactor = 1.0 - ((double) target.getHp() / target.getMaxHp());
@@ -39,7 +39,7 @@ abstract public class PokeBall {
         double gradeFactor = 1.0 / (1.0 + (target.getGrade() * 0.1));
         
         // Calculate final catch rate
-        double finalCatchRate = (baseRate + hpFactor * 0.4) * gradeFactor * catchRateModifier;
+        double finalCatchRate = (baseCatchRate + hpFactor * 0.4) * gradeFactor * catchRateModifier;
         
         // Cap at 95% max catch rate
         finalCatchRate = Math.min(0.95, finalCatchRate);
