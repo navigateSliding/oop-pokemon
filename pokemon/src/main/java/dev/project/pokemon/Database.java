@@ -376,6 +376,8 @@ public class Database {
      * Handle a single line of player data based on current section
      */
     private void handlePlayerDataLine(Player player, String section, String line) {
+        Pokemon loadPlayerPokemon = parsePokemonFromSaveLine(line);
+
         try {
             switch (section) {
                 case "PLAYER_INFO" -> {
@@ -391,15 +393,13 @@ public class Database {
                     }
                 }
                 case "COLLECTION" -> {
-                    Pokemon collectionPokemon = parsePokemonFromSaveLine(line);
-                    if (collectionPokemon != null) {
-                        player.getPokemonCollection().add(collectionPokemon);
+                    if (loadPlayerPokemon != null) {
+                        player.getPokemonCollection().add(loadPlayerPokemon);
                     }
                 }
                 case "PARTY" -> {
-                    Pokemon partyPokemon = parsePokemonFromSaveLine(line);
-                    if (partyPokemon != null && player.getPartyList().size() < 3) {
-                        player.getPartyList().add(partyPokemon);
+                    if (loadPlayerPokemon != null && player.getPartyList().size() < 3) {
+                        player.getPartyList().add(loadPlayerPokemon);
                     }
                 }
             }
