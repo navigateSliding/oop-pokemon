@@ -412,16 +412,21 @@ public class GameEngine {
     
   private void healPokemon() {
         System.out.println("Choose Pokemon to heal:");
-        for (int i = 0; i < player.getPokemonCollection().size(); i++) {
-            System.out.println((i + 1) + ". " + player.getPokemonCollection().get(i).getName());
+        for (int i = 0; i < player.getPartyList().size(); i++) {
+            System.out.printf("%d. %s HP: %d/%d\n",
+                    i+1,
+                    player.getPartyList().get(i).getName(),
+                    player.getPartyList().get(i).getHp(),
+                    player.getPartyList().get(i).getMaxHp()
+            );
         }
 
-        System.out.print("Choose Pokemon (1-" + player.getPokemonCollection().size() + "): ");
+        System.out.print("Choose Pokemon (1-" + player.getPartyList().size() + "): ");
 
         try {
             int choice = Integer.parseInt(scanner.nextLine()) - 1;
-            if (choice >= 0 && choice < player.getPokemonCollection().size()) {
-                Pokemon chosen = player.getPokemonCollection().get(choice);
+            if (choice >= 0 && choice < player.getPartyList().size()) {
+                Pokemon chosen = player.getPartyList().get(choice);
                 chosen.heal();
             }
         } catch (NumberFormatException e) {
