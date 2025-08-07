@@ -202,8 +202,7 @@ public class Battle {
                 System.out.println(playerPokemon.getName() + " used " + availableMove.getName() + "!");
 
                 if (randomChance < 0.4) {
-                    System.out.println( "Keep Clicking 'space' To Get 100% For Crit Damage\n" +
-                            "Ready? (Press any button to continue)");
+                    display.displayCritChanceTip();
                     scanner.nextLine();
 
                     inputHandler.progressInput(progress);

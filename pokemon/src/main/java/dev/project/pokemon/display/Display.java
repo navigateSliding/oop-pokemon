@@ -41,6 +41,11 @@ public class Display {
         System.out.print("Choose option: ");
     }
 
+    public void displayCritChanceTip() {
+        System.out.println(AsciiArt.getCritChanceTip());
+        System.out.println("Ready? (Press 'enter' to continue)");
+    }
+
     public void displayCatchFailed() {
         System.out.println(AsciiArt.getCatchFailed());
     }

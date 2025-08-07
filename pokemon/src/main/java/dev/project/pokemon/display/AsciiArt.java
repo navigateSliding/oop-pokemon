@@ -45,6 +45,15 @@ public class AsciiArt {
 				Q - [ Leave ]
 				""";
 	}
+	public static String getCritChanceTip() {
+		return """
+                ▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
+                ▐                                                      ▌
+                ▐  Keep Clicking 'space' To Get 100% For Crit Damage!  ▌
+                ▐                                                      ▌
+                ▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
+                """;
+	}
 	public static String getCatchFailed() {
 		return """
 				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
