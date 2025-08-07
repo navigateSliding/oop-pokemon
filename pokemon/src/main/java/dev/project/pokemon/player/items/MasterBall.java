@@ -11,7 +11,6 @@ public class MasterBall extends PokeBall {
     public boolean attemptCatch(Pokemon target) {
         System.out.println("Throwing " + name + " at " + target.getName() + "...");
         System.out.println("Critical hit! " + target.getName() + " was caught!");
-        target.heal(); // Heal Pokemon when caught
         return true; // Master Ball never fails (in normal circumstances)
     }
 }

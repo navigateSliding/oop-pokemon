@@ -238,9 +238,8 @@ public class Battle {
      * Handle enemy's turn (AI or wild Pokemon)
      */
     private void enemyTurn(Pokemon enemyPokemon, Pokemon playerPokemon) {
-        Move enemyMove = null;
+        Move enemyMove = enemyPokemon.getMove();
         String trainerName = "Wild Pokemon";
-        enemyMove = enemyPokemon.getMove();
 
         System.out.println("\n=== Opponent's Turn ===");
         

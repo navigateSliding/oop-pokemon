@@ -1,15 +1,12 @@
 package dev.project.pokemon.pokemon;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Pokemon {
     // Attributes
     private String name;
     private String pokemonId;
     private int grade;
     private int hp;
-    private int maxHp;
+    private final int maxHp;
     private int attack;
     private int defense;
     private int speed;
@@ -86,15 +83,6 @@ public class Pokemon {
     
     public PokemonType getType() {
         return type;
-    }
-    
-    // TODO: need this if we use multiple moves
-    public List<Move> getMoves() {
-        List<Move> moves = new ArrayList<>();
-        if (move != null) {
-            moves.add(move);
-        }
-        return moves;
     }
     
     // Battle methods
