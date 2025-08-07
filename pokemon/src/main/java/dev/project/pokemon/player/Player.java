@@ -1,5 +1,6 @@
 package dev.project.pokemon.player;
 
+import dev.project.pokemon.display.Display;
 import dev.project.pokemon.pokemon.Pokemon;
 
 import java.util.ArrayList;
@@ -11,12 +12,14 @@ public class Player {
     private ArrayList<Pokemon> partyList; 
     private int score;
     private static final int MAX_PARTY_SIZE = 3;
+    private final Display display;
 
     // Constructors
     public Player() {
         this.pokemonCollection = new ArrayList<>();
         this.partyList = new ArrayList<>();
         this.score = 0;
+        display = new Display();
     }
 
     public Player(String name) {
@@ -24,6 +27,7 @@ public class Player {
         this.pokemonCollection = new ArrayList<>();
         this.partyList = new ArrayList<>();
         this.score = 0;
+        display = new Display();
     }
 
     // Getters and Setters
@@ -59,7 +63,7 @@ public class Player {
                 if (!partyList.get(i).isDefeated()) {
                     Pokemon current = partyList.remove(0);
                     partyList.add(current);
-                    System.out.println("Switched to " + partyList.get(0).getName() + "!");
+                    display.displaySwitchPokemon(partyList.get(0).getName());
                     return true;
                 }
             }

@@ -47,15 +47,7 @@ abstract public class PokeBall {
         // Generate random number and check success
         double roll = random.nextDouble();
         boolean success = roll < finalCatchRate;
-        
-        // Display result
-        if (success) {
-            System.out.println("Success! " + target.getName() + " was caught!");
-            target.heal(); // Heal Pokemon when caught
-        } else {
-            System.out.println("Oh no! " + target.getName() + " broke free!");
-        }
-        
+
         return success;
     }
     

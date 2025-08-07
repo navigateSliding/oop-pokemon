@@ -76,26 +76,19 @@ public class GameEngine {
         if (loadedPlayer != null) {
             // Found existing player
             this.player = loadedPlayer;
-            System.out.println("Welcome back, " + playerName + "!");
-            System.out.println("Loaded your progress:");
-            System.out.println("- Pokemon in collection: " + player.getPokemonCollection().size());
-            System.out.println("- Pokemon in party: " + player.getPartyList().size());
-            System.out.println("Current score: " + player.getScore());
-            System.out.println("\nPress Enter to continue...");
-            scanner.nextLine();
+            display.displayFoundExistingPlayer(playerName, player);
         } else {
-            // Create new player
             this.player = new Player(playerName);
             
             // Give starter Pokemon
             giveStarterPokemon();
             System.out.println("New trainer registered: " + playerName);
             System.out.println("Current score: " + player.getScore());
-            
-            // Add pause so user can read the messages
-            System.out.println("\nPress Enter to continue...");
-            scanner.nextLine();
         }
+
+        // Add pause so user can read the messages
+        System.out.println("\nPress Enter to continue...");
+        scanner.nextLine();
     }
         
     /**
@@ -103,7 +96,9 @@ public class GameEngine {
      */
     private void giveStarterPokemon() {
         int choice;
-        
+
+        display.displayGiveStarterPokemon();
+
         // Create starter options
         Pokemon charmander = new Pokemon("Charmander", "004", 3, 78, 84, 78, 65, PokemonType.FIRE);
         charmander.setMove(new Move("Ember", PokemonType.FIRE, 40));
@@ -113,8 +108,6 @@ public class GameEngine {
         
         Pokemon bulbasaur = new Pokemon("Bulbasaur", "001", 3, 80, 82, 83, 45, PokemonType.GRASS);
         bulbasaur.setMove(new Move("Vine Whip", PokemonType.GRASS, 45));
-
-        display.displayGiveStarterPokemon();
 
         do {
             System.out.print("Choose your starter (1-3): ");
@@ -187,10 +180,10 @@ public class GameEngine {
         }
         
         // Let player choose which Pokemon to battle
-        System.out.print("Choose Pokemon to battle (1-" + encounter.size() + "): ");
+        System.out.printf("Choose Pokemon to battle (1-%d): ", encounter.size());
 
         try {
-            choice = Integer.parseInt(scanner.nextLine()) - 1;
+            choice = Integer.parseInt(scanner.nextLine()) - 1; //TODO: Maybe can extract them
         } catch (NumberFormatException e) {
             choice = 0;
         }
@@ -231,7 +224,7 @@ public class GameEngine {
                     attemptCatch(wildPokemon);
                 }
             }
-            case "WILD_WIN" -> System.out.println("Your Pokemon was defeated! Better luck next time.");
+            case "WILD_WIN" -> System.out.println("Better luck next time.");
             case "RAN_AWAY" -> System.out.println("You escaped safely.");
             default -> System.out.println("Battle ended.");
         }
@@ -268,8 +261,10 @@ public class GameEngine {
         boolean caught = ball.attemptCatch(wildPokemon);
         
         if (caught) {
+            System.out.println("Success! " + wildPokemon.getName() + " was caught!");
+            wildPokemon.heal(); // Heal Pokemon when caught
+
             player.addToCollection(wildPokemon);
-            System.out.println(wildPokemon.getName() + " was added to your collection!");
             
             // Bonus score for catching
             int catchBonus = wildPokemon.getGrade() * 150;
@@ -278,7 +273,7 @@ public class GameEngine {
             
             display.displayPokemonInfo(wildPokemon);
         } else {
-            display.displayCatchFailed();
+            display.displayCatchFailed(wildPokemon);
         }
     }
     
@@ -372,7 +367,7 @@ public class GameEngine {
             System.out.println((i + 1) + ". " + p.getName() + status);
         }
         
-        System.out.print("Choose Pokemon (1-" + player.getPokemonCollection().size() + "): ");
+        System.out.printf("Choose Pokemon (1-%d): ", player.getPokemonCollection().size());
         try {
             int choice = Integer.parseInt(scanner.nextLine()) - 1;
             if (choice >= 0 && choice < player.getPokemonCollection().size()) {
@@ -398,7 +393,7 @@ public class GameEngine {
             System.out.println((i + 1) + ". " + player.getPartyList().get(i).getName());
         }
         
-        System.out.print("Choose Pokemon (1-" + player.getPartyList().size() + "): ");
+        System.out.printf("Choose Pokemon (1-%d): ", player.getPartyList().size());
         try {
             int choice = Integer.parseInt(scanner.nextLine()) - 1;
             if (choice >= 0 && choice < player.getPartyList().size()) {
@@ -411,7 +406,7 @@ public class GameEngine {
     }
     
   private void healPokemon() {
-        System.out.println("Choose Pokemon to heal:");
+        System.out.println("\nChoose Pokemon to heal:");
         for (int i = 0; i < player.getPartyList().size(); i++) {
             System.out.printf("%d. %s HP: %d/%d\n",
                     i+1,
@@ -421,7 +416,7 @@ public class GameEngine {
             );
         }
 
-        System.out.print("Choose Pokemon (1-" + player.getPartyList().size() + "): ");
+        System.out.printf("Choose Pokemon (1-%d): ", player.getPartyList().size());
 
         try {
             int choice = Integer.parseInt(scanner.nextLine()) - 1;
@@ -432,7 +427,7 @@ public class GameEngine {
         } catch (NumberFormatException e) {
             System.out.println("Invalid choice!");
         }
-  } 
+  }
 
     /**
      * View detailed info for a specific Pokemon
@@ -442,8 +437,8 @@ public class GameEngine {
         for (int i = 0; i < player.getPokemonCollection().size(); i++) {
             System.out.println((i + 1) + ". " + player.getPokemonCollection().get(i).getName());
         }
-        
-        System.out.print("Choose Pokemon (1-" + player.getPokemonCollection().size() + "): ");
+
+        System.out.printf("Choose Pokemon (1-%d): ", player.getPokemonCollection().size());
         try {
             int choice = Integer.parseInt(scanner.nextLine()) - 1;
             if (choice >= 0 && choice < player.getPokemonCollection().size()) {
@@ -464,8 +459,7 @@ public class GameEngine {
         
         // Check if current player's score qualifies
         if (scoreManager.isHighScore(player.getScore())) {
-            System.out.println("\nCongratulations! Your current score (" + 
-                             player.getScore() + ") qualifies for the high score list!");
+            System.out.printf("\nCongratulations! Your current score (%d) qualifies for the high score list!\n", player.getScore());
             scoreManager.addScore(player.getName(), player.getScore());
         }
         

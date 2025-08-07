@@ -29,6 +29,14 @@ public class Display {
         System.out.println("Welcome to Pokemon Battle & Catch!");
     }
 
+    public void displayFoundExistingPlayer(String playerName, Player player) {
+        System.out.println("Welcome back, " + playerName + "!");
+        System.out.println("Loaded your progress:");
+        System.out.println("- Pokemon in collection: " + player.getPokemonCollection().size());
+        System.out.println("- Pokemon in party: " + player.getPartyList().size());
+        System.out.println("Current score: " + player.getScore());
+    }
+
     public void displayGiveStarterPokemon() {
         System.out.println( "\n=== CHOOSE YOUR STARTER POKEMON ===\n" +
                             "1. Charmander (Fire Type)\n" +
@@ -41,17 +49,25 @@ public class Display {
         System.out.print("Choose option: ");
     }
 
+    public void displaySwitchPokemon(String pokemonName) {
+        System.out.println(AsciiArt.getSwitchPokemon());
+        System.out.println("Switched to " + pokemonName + "!");
+    }
+
     public void displayCritChanceTip() {
         System.out.println(AsciiArt.getCritChanceTip());
         System.out.println("Ready? (Press 'enter' to continue)");
     }
 
-    public void displayCatchFailed() {
+    public void displayCatchFailed(Pokemon target) {
         System.out.println(AsciiArt.getCatchFailed());
+        System.out.println("Oh no! " + target.getName() + " broke free!");
     }
 
-    public void displayDefeat() {
+    public void displayDefeat(String activePokemonName) {
         System.out.println(AsciiArt.getDefeat());
+        System.out.printf(  "Your Pokemon(%s) was defeated\n" +
+                            "Heal Your Pokemon\n", activePokemonName);
     }
 
     public void displayGameOver() {
@@ -63,6 +79,7 @@ public class Display {
         System.out.println("\n=== WILD POKEMON BATTLE ===");
         System.out.println("Wild " + wild.getName() + " (HP: " + wild.getHp() + "/" + wild.getMaxHp() + ")");
         System.out.println("Your " + playerPokemon.getName() + " (HP: " + playerPokemon.getHp() + "/" + playerPokemon.getMaxHp() + ")");
+        System.out.println("===========================");
 
         System.out.println( "\nWhat will you do?\n" +
                             "C - Catch " + wild.getName() + "\n" +
@@ -72,11 +89,14 @@ public class Display {
     }
 
     public void displayPlayerTurn(Player player, Pokemon wild, Pokemon playerPokemon) {
+        String dynamicSeparator = "=".repeat(player.getName().length());
+
         System.out.println("\n=== " + player.getName() + "'s Turn ===");
         System.out.println("Your " + playerPokemon.getName() + " (HP: " +
                 playerPokemon.getHp() + "/" + playerPokemon.getMaxHp() + ")");
         System.out.println("Wild " + wild.getName() + " (HP: " +
                 wild.getHp() + "/" + wild.getMaxHp() + ")");
+        System.out.printf("====%s===========", dynamicSeparator);
 
         System.out.println( "\nWhat will " + playerPokemon.getName() + " do?\n" +
                             "1. Attack\n" +
@@ -87,11 +107,11 @@ public class Display {
 
     public void displayAttemptCatch() {
         System.out.println( "\n=== CATCHING ATTEMPT ===\n" +
-                "Choose your Poke Ball:\n" +
-                "1. Poke Ball (Standard)\n" +
-                "2. Great Ball (1.5x catch rate)\n" +
-                "3. Ultra Ball (2x catch rate)\n" +
-                "4. Master Ball (Guaranteed)\n");
+                            "Choose your Poke Ball:\n" +
+                            "1. Poke Ball (Standard)\n" +
+                            "2. Great Ball (1.5x catch rate)\n" +
+                            "3. Ultra Ball (2x catch rate)\n" +
+                            "4. Master Ball (Guaranteed)\n");
         System.out.print("Choose ball (1-4): ");
     }
 
