@@ -289,7 +289,7 @@ public class GameEngine {
         ArrayList<Pokemon> encounter = new ArrayList<>();
         
         // Generate 1-3 random wild Pokemon
-        int numPokemon = random.nextInt(3) + 1;
+        int numPokemon = random.nextInt(2) + 2;
         
         for (int i = 0; i < numPokemon; i++) {
             // Pick random Pokemon from roster
