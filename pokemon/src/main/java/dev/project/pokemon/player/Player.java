@@ -53,7 +53,7 @@ public class Player {
     }
 
     // Other methods
-    public void switchPokemon() {
+    public boolean switchPokemon() {
         if (partyList.size() > 1) {
             // Find next non-defeated Pokemon
             for (int i = 1; i < partyList.size(); i++) {
@@ -61,13 +61,15 @@ public class Player {
                     Pokemon current = partyList.remove(0);
                     partyList.add(current);
                     System.out.println("Switched to " + partyList.get(0).getName() + "!");
-                    return;
+                    return true;
                 }
             }
             System.out.println("No other healthy Pokemon to switch to.");
         } else {
             System.out.println("No other Pokemon to switch to.");
         }
+
+        return false;
     }
 
     public void addPokemon(Pokemon p) {

@@ -45,21 +45,38 @@ public class Battle {
     private void startWildBattle() {
         display.clearScreen();
         System.out.println("=== WILD POKEMON ENCOUNTER ===");
-        
-        Pokemon playerPokemon = getPlayerActivePokemon();
+
         Pokemon wild = wildPokemon.get(0); // Battle first wild Pokemon
         
-        if (playerPokemon == null) {
+        if (getPlayerActivePokemon() == null) {
             System.out.println("You have no Pokemon to battle with!");
             return;
         }
         
         System.out.println("A wild " + wild.getName() + " appeared!");
-        System.out.println(player.getName() + " sends out " + playerPokemon.getName() + "!");
+        System.out.println(player.getName() + " sends out " + getPlayerActivePokemon().getName() + "!");
         
         // Battle loop
-        while (!battleEnded && !playerPokemon.isDefeated() && !wild.isDefeated()) {
-            display.displayWildPokemonBattleOptions(wild, playerPokemon);
+        while (!battleEnded) {
+            // Check battle result
+            if (getPlayerActivePokemon().isDefeated()) {
+                System.out.printf("%s is defeated\n", getPlayerActivePokemon().getName());
+
+                if (!player.switchPokemon()) {
+                    battleResult = "WILD_WIN";
+                    display.displayDefeat();
+                    System.out.println(getPlayerActivePokemon().getName() + " was defeated!"); //TODO: MOVE THESE
+                    break;
+                }
+
+                continue;
+            } else if (wild.isDefeated()) {
+                battleResult = "PLAYER_WIN";
+                System.out.println("Wild " + wild.getName() + " was defeated!");
+                break;
+            }
+
+            display.displayWildPokemonBattleOptions(wild, getPlayerActivePokemon());
             
             String choice = scanner.nextLine().toUpperCase();
             
@@ -72,7 +89,7 @@ public class Battle {
                 }
                 case "F" -> {
                     // Fight - use detailed battle system
-                    wildBattleTurn(playerPokemon, wild);
+                    wildBattleTurn(getPlayerActivePokemon(), wild);
                 }
                 case "Q" -> {
                     // Leave
@@ -82,16 +99,6 @@ public class Battle {
                 }
                 default -> System.out.println("Invalid choice! Please try again.");
             }
-        }
-        
-        // Check battle result
-        if (playerPokemon.isDefeated()) {
-            battleResult = "WILD_WIN";
-            display.displayDefeat();
-            System.out.println(playerPokemon.getName() + " was defeated!"); //TODO: MOVE THESE
-        } else if (wild.isDefeated()) {
-            battleResult = "PLAYER_WIN";
-            System.out.println("Wild " + wild.getName() + " was defeated!");
         }
     }
     
