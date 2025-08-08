@@ -17,7 +17,7 @@ public class Battle {
     private final Display display;
     private final Scanner scanner;
     private boolean battleEnded;
-    private String battleResult; // "PLAYER_WIN", "AI_WIN", "DRAW" TODO: CHANGE TO ENUMERATION
+    private String battleResult; // "PLAYER_WIN", "AI_WIN", "DRAW"
     private ProgressBar progress;
     
     // Constructor

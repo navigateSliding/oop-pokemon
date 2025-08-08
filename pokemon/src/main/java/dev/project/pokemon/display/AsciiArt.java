@@ -2,7 +2,6 @@ package dev.project.pokemon.display;
 
 public class AsciiArt {
 	public static String getLogo() {
-//		Using ANSI Shadow from https://www.asciiart.eu/text-to-ascii-art
 		return """
 				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
 				▐                                                                 ▌
@@ -63,7 +62,6 @@ public class AsciiArt {
 				""";
 	}
 	public static String getDefeat() {
-//		Using Pagga Font from https://www.asciiart.eu/text-to-ascii-art
 		return """
 				▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
 				▐                            ▌

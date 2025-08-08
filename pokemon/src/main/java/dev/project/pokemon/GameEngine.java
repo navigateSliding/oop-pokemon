@@ -183,7 +183,7 @@ public class GameEngine {
         System.out.printf("Choose Pokemon to battle (1-%d): ", encounter.size());
 
         try {
-            choice = Integer.parseInt(scanner.nextLine()) - 1; //TODO: Maybe can extract them
+            choice = Integer.parseInt(scanner.nextLine()) - 1;
         } catch (NumberFormatException e) {
             choice = 0;
         }
