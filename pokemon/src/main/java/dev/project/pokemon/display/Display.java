@@ -56,7 +56,6 @@ public class Display {
 
     public void displayCritChanceTip() {
         System.out.println(AsciiArt.getCritChanceTip());
-        System.out.println("Ready? (Press 'enter' to continue)");
     }
 
     public void displayCatchFailed(Pokemon target) {

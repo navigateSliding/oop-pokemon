@@ -46,6 +46,7 @@ public class AsciiArt {
                 ▐▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▌
                 ▐                                                      ▌
                 ▐  Keep Clicking 'space' To Get 100% For Crit Damage!  ▌
+                ▐          Ready? (Press 'enter' to continue)          ▌
                 ▐                                                      ▌
                 ▐▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌
                 """;
