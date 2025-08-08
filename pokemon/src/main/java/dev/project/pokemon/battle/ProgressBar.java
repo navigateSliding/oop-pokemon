@@ -2,13 +2,13 @@ package dev.project.pokemon.battle;
 
 // inspo: https://masterex.github.io/archive/2011/10/23/java-cli-progress-bar.html
 
-public class progressBar {
+public class ProgressBar {
     private double currentValue;
     private final double progressMax;
     private final double progressMin;
     private final int progressBarLength;
 
-    public progressBar(double progressMin, double progressMax, int progressBarLength) {
+    public ProgressBar(double progressMin, double progressMax, int progressBarLength) {
         this.progressMin = progressMin;
         this.progressMax = progressMax;
         this.progressBarLength = progressBarLength;

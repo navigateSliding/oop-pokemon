@@ -7,9 +7,9 @@ import org.jline.utils.NonBlockingReader;
 
 import java.io.IOException;
 
-public class inputHandler {
+public class InputHandler {
 
-    public static void progressInput(progressBar progress) {
+    public static void progressInput(ProgressBar progress) {
         try (Terminal terminal = TerminalBuilder.builder().build()) {
             progress.printProgressBar();
 

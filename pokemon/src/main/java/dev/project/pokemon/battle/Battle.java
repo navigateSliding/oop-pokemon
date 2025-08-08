@@ -179,7 +179,7 @@ public class Battle {
      */
     private void showMoveSelection(Pokemon playerPokemon, Pokemon opponent) {
         Random random = new Random();
-        progressBar progress = new progressBar(0, 100, 20);
+        ProgressBar progress = new ProgressBar(0, 100, 20);
         double randomChance = random.nextDouble();
 
         System.out.println("\n--- SELECT MOVE ---");
@@ -211,7 +211,7 @@ public class Battle {
                     display.displayCritChanceTip();
                     scanner.nextLine();
 
-                    inputHandler.progressInput(progress);
+                    InputHandler.progressInput(progress);
                     if (progress.getCurrentValue() >= 100) {
                         opponent.takeDamage(damage*2);
                     }
