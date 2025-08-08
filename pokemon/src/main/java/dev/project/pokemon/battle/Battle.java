@@ -18,6 +18,7 @@ public class Battle {
     private final Scanner scanner;
     private boolean battleEnded;
     private String battleResult; // "PLAYER_WIN", "AI_WIN", "DRAW" TODO: CHANGE TO ENUMERATION
+    private ProgressBar progress;
     
     // Constructor
     public Battle(Player player, ArrayList<Pokemon> wildPokemon) {
@@ -26,6 +27,7 @@ public class Battle {
         this.display = new Display();
         this.scanner = new Scanner(System.in);
         this.battleEnded = false;
+        this.progress = new ProgressBar(0, 100, 20);
     }
     
     /**
@@ -179,7 +181,6 @@ public class Battle {
      */
     private void showMoveSelection(Pokemon playerPokemon, Pokemon opponent) {
         Random random = new Random();
-        ProgressBar progress = new ProgressBar(0, 100, 20);
         double randomChance = random.nextDouble();
 
         System.out.println("\n--- SELECT MOVE ---");
@@ -215,6 +216,9 @@ public class Battle {
                     if (progress.getCurrentValue() >= 100) {
                         opponent.takeDamage(damage*2);
                     }
+
+                    progress.resetProgress();
+
                     break;
                 }
 

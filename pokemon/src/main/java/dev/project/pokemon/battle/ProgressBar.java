@@ -43,4 +43,7 @@ public class ProgressBar {
 
         System.out.printf("%s %.2f%%\r", progressBar, currentValue);
     }
+    public void resetProgress() {
+        this.currentValue = this.progressMax / 4;
+    }
 }
