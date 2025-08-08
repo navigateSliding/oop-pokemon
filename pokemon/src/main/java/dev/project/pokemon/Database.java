@@ -55,16 +55,16 @@ public class Database {
     private void createDefaultPokemonData() {
         try (PrintWriter writer = new PrintWriter(new FileWriter(POKEMON_DATA_FILE))) {
             // Format: name|pokemonId|grade|maxHp|attack|defense|speed|type|moveName|movePower|moveType
-            writer.println("Pikachu|001|5|100|80|60|90|ELECTRIC|Thunder Bolt|90|ELECTRIC");
-            writer.println("Charmander|004|3|78|84|78|65|FIRE|Ember|40|FIRE");
-            writer.println("Squirtle|007|3|79|83|100|43|WATER|Water Gun|40|WATER");
-            writer.println("Bulbasaur|001|3|80|82|83|45|GRASS|Vine Whip|45|GRASS");
-            writer.println("Geodude|074|4|80|120|130|20|ROCK|Rock Throw|50|ROCK");
-            writer.println("Articuno|144|8|125|85|100|85|ICE|Ice Beam|90|ICE");
-            writer.println("Nidoran|029|4|86|87|62|41|POISON|Poison Sting|15|POISON");
-            writer.println("Raichu|026|6|120|90|55|110|ELECTRIC|Thunder|110|ELECTRIC");
-            writer.println("Charizard|006|8|134|109|85|100|FIRE|Flamethrower|90|FIRE");
-            writer.println("Blastoise|009|8|137|103|120|78|WATER|Hydro Pump|110|WATER");
+            writer.println("Pikachu|001|5|100|40|60|90|ELECTRIC|Thunder Bolt|90|ELECTRIC");
+            writer.println("Charmander|004|3|78|41|78|65|FIRE|Ember|40|FIRE");
+            writer.println("Squirtle|007|3|79|42|100|43|WATER|Water Gun|40|WATER");
+            writer.println("Bulbasaur|001|3|80|41|83|45|GRASS|Vine Whip|45|GRASS");
+            writer.println("Geodude|074|4|80|55|130|20|ROCK|Rock Throw|50|ROCK");
+            writer.println("Articuno|144|8|125|43|100|85|ICE|Ice Beam|90|ICE");
+            writer.println("Nidoran|029|4|86|44|62|41|POISON|Poison Sting|15|POISON");
+            writer.println("Raichu|026|6|120|45|55|110|ELECTRIC|Thunder|110|ELECTRIC");
+            writer.println("Charizard|006|8|134|55|85|100|FIRE|Flamethrower|90|FIRE");
+            writer.println("Blastoise|009|8|137|52|120|78|WATER|Hydro Pump|110|WATER");
 
             System.out.println("Default Pokemon data created successfully.");
 

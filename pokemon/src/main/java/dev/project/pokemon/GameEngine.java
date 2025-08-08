@@ -220,7 +220,7 @@ public class GameEngine {
                 
                 // Offer to attempt catch on defeated Pokemon
                 System.out.print("Attempt to catch the defeated " + wildPokemon.getName() + "? (Y/N): ");
-                if (scanner.nextLine().toUpperCase().startsWith("Y")) {
+                if (scanner.nextLine().trim().toUpperCase().startsWith("Y")) {
                     attemptCatch(wildPokemon);
                 }
             }

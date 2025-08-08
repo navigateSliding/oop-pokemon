@@ -66,7 +66,7 @@ public class Display {
     public void displayDefeat(String activePokemonName) {
         System.out.println(AsciiArt.getDefeat());
         System.out.printf(  "Your Pokemon(%s) was defeated\n" +
-                            "Heal Your Pokemon\n", activePokemonName);
+                            "Heal Your Pokemon in 'View Pokemon'\n", activePokemonName);
     }
 
     public void displayGameOver() {
